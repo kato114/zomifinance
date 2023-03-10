@@ -1,0 +1,104 @@
+specVersion: 0.0.2
+description: null
+repository: null
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: OrderBook
+    network: bsc
+    source:
+      address: "0x18C46869736f7e2582d00Af4c2339e7bFc65F00C"
+      abi: OrderBook
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Order
+      abis:
+        - name: OrderBook
+          file: OrderBook\abis\OrderBook.json
+      eventHandlers:
+        - event: CreateIncreaseOrder(indexed
+            address,uint256,address,uint256,address,address,uint256,bool,uint256,bool,uint256)
+          handler: handleCreateIncreaseOrder
+        - event: CancelIncreaseOrder(indexed
+            address,uint256,address,uint256,address,address,uint256,bool,uint256,bool,uint256)
+          handler: handleCancelIncreaseOrder
+        - event: ExecuteIncreaseOrder(indexed
+            address,uint256,address,uint256,address,address,uint256,bool,uint256,bool,uint256,uint256)
+          handler: handleExecuteIncreaseOrder
+        - event: CreateDecreaseOrder(indexed
+            address,uint256,address,uint256,address,uint256,bool,uint256,bool,uint256)
+          handler: handleCreateDecreaseOrder
+        - event: CancelDecreaseOrder(indexed
+            address,uint256,address,uint256,address,uint256,bool,uint256,bool,uint256)
+          handler: handleCancelDecreaseOrder
+        - event: ExecuteDecreaseOrder(indexed
+            address,uint256,address,uint256,address,uint256,bool,uint256,bool,uint256,uint256)
+          handler: handleExecuteDecreaseOrder
+        - event: CreateSwapOrder(indexed
+            address,uint256,address[],uint256,uint256,uint256,bool,bool,uint256)
+          handler: handleCreateSwapOrder
+        - event: CancelSwapOrder(indexed
+            address,uint256,address[],uint256,uint256,uint256,bool,bool,uint256)
+          handler: handleCancelSwapOrder
+        - event: ExecuteSwapOrder(indexed
+            address,uint256,address[],uint256,uint256,uint256,uint256,bool,bool,uint256)
+          handler: handleExecuteSwapOrder
+      file: OrderBook\OrderBook.wasm
+  - kind: ethereum/contract
+    name: Router
+    network: bsc
+    source:
+      address: "0xECA51e46cC2FA86C50A7737Dbbd10fD9a9951ff6"
+      abi: Router
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Swap
+      abis:
+        - name: Router
+          file: Router\abis\Router.json
+      eventHandlers:
+        - event: Swap(address,address,address,uint256,uint256)
+          handler: handleSwap
+      file: Router\Router.wasm
+  - kind: ethereum/contract
+    name: PositionRouter
+    network: bsc
+    source:
+      address: "0x16f67B8A7B646e3C4a5e89A31eb3A1c515710413"
+      abi: PositionRouter
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - CreateIncreasePosition
+        - CreateDecreasePosition
+        - CancelIncreasePosition
+        - CancelDecreasePosition
+      abis:
+        - name: PositionRouter
+          file: PositionRouter\abis\PositionRouter.json
+      eventHandlers:
+        - event: CreateIncreasePosition(indexed
+            address,address[],address,uint256,uint256,uint256,bool,uint256,uint256,uint256,uint256,uint256,uint256,uint256)
+          handler: handleCreateIncreasePosition
+        - event: CreateDecreasePosition(indexed
+            address,address[],address,uint256,uint256,bool,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256)
+          handler: handleCreateDecreasePosition
+        - event: CancelIncreasePosition(indexed
+            address,address[],address,uint256,uint256,uint256,bool,uint256,uint256,uint256,uint256)
+          handler: handleCancelIncreasePosition
+        - event: CancelDecreasePosition(indexed
+            address,address[],address,uint256,uint256,bool,address,uint256,uint256,uint256,uint256,uint256)
+          handler: handleCancelDecreasePosition
+      file: PositionRouter\PositionRouter.wasm

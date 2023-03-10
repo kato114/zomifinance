@@ -1,0 +1,773 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorBNB
+    network: bsc
+    source:
+      address: "0x137924D7C36816E0DcAF016eB617Cc2C92C05782"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorBNB\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedBNB
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorMATIC
+    network: bsc
+    source:
+      address: "0xec1ca9c5dd897f832cde3d43bb041f5e01380757"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorMATIC\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedMATIC
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorETH
+    network: bsc
+    source:
+      address: "0xfc3069296a691250ffdf21fe51340fdd415a76ed"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorETH\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedETH
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorBTC
+    network: bsc
+    source:
+      address: "0x178ba789e24a1d51e9ea3cb1db3b52917963d71d"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorBTC\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedBTC
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorSOL
+    network: bsc
+    source:
+      address: "0x14e9d15c1ecd428606c443ed715631b5c444a49e"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorSOL\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedSOL
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorDOGE
+    network: bsc
+    source:
+      address: "0xd0a597ffc7075e1449ece7feaa9880488ddb34fd"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorDOGE\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedDOGE
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorAVAX
+    network: bsc
+    source:
+      address: "0xb4c0f8f07a5e5d870bc02457213809b9cb5f56c4"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorAVAX\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedAVAX
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregator1INCH
+    network: bsc
+    source:
+      address: "0xd690b2cf0d2bcbce51c4ce2dc46e02c508465c5c"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregator1INCH\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdated1INCH
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorAAVE
+    network: bsc
+    source:
+      address: "0x7457f14ce4773ebeb1352d2774ec384a54c2f665"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorAAVE\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedAAVE
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorWOO
+    network: bsc
+    source:
+      address: "0xfbd2fed777daab126041b193006de529118eaf95"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorWOO\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedWOO
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorLINK
+    network: bsc
+    source:
+      address: "0x0b67ad077fa839f6737a1630c89ee1a1572989c6"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorLINK\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedLINK
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorSUSHI
+    network: bsc
+    source:
+      address: "0x761eff952671395708f22c5a7d5673685277a5c3"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorSUSHI\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedSUSHI
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorFRAX
+    network: bsc
+    source:
+      address: "0x673da2f5eae6860f7b1249e2cbcca433834a1eb3"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorFRAX\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedFRAX
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorCAKE
+    network: bsc
+    source:
+      address: "0x7935a51addab8550d346feef34e02f67c9330109"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorCAKE\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedCAKE
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorBISWAP
+    network: bsc
+    source:
+      address: "0xc430481d7f5b670623c70420643ac5efa0d7c95d"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorBISWAP\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedBISWAP
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorSHIBA
+    network: bsc
+    source:
+      address: "0x19ec74fd763db58b77e6ec6b556b9c594ca67abb"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorSHIBA\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedSHIBA
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorATOM
+    network: bsc
+    source:
+      address: "0x2e9c2b44d3f5702d2654c20260e8e010656d9777"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorATOM\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedATOM
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorAXS
+    network: bsc
+    source:
+      address: "0xc0850b8587cffa166985fa397e8391feca959f3f"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorAXS\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedAXS
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorFTM
+    network: bsc
+    source:
+      address: "0xf5c16d009af1f1d3395883d9d7e626472d2dd6b8"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorFTM\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedFTM
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorCOMPOUND
+    network: bsc
+    source:
+      address: "0x94069ff23e3a962646638b2bb44d4d7f664dccbd"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorCOMPOUND\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedCOMPOUND
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorFETCH
+    network: bsc
+    source:
+      address: "0xb2b7c2d554f52daec37974b2e335c98cda8ceb3a"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorFETCH\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedFETCH
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorMASK
+    network: bsc
+    source:
+      address: "0xf1eed6f4a9006b3cf8f547b36d055b97ef50de8b"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorMASK\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedMASK
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorONT
+    network: bsc
+    source:
+      address: "0x586e5572217d68643e1de6a0d40cb37b0961a11a"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorONT\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedONT
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorSXP
+    network: bsc
+    source:
+      address: "0x5ba2b3a2a41141aa55fc72c40d6643aee12bd0b6"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorSXP\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedSXP
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorINJ
+    network: bsc
+    source:
+      address: "0x4d70d497cef3674be370586230f9a2f4b30cff11"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorINJ\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedINJ
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorCHR
+    network: bsc
+    source:
+      address: "0x9ebb8330dff88f3d9e743e8240177cdcd3292103"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorCHR\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedCHR
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorXVS
+    network: bsc
+    source:
+      address: "0xd051e4050dad55285eedbc186095c0ccb7054944"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorXVS\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedXVS
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorUSDC
+    network: bsc
+    source:
+      address: "0x7008fded94a8ce68d01feb633c4d81c2be7a1b20"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorUSDC\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedUSDC
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorUSDT
+    network: bsc
+    source:
+      address: "0x2dc202b56a03667cc240b290c2be2b8453e89ea1"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorUSDT\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedUSDT
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: ChainlinkAggregatorBUSD
+    network: bsc
+    source:
+      address: "0x7a6bb3a3c0c99ba43564017d7523a74ba0f7cb5d"
+      abi: ChainlinkAggregator
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChainlinkPrice
+      abis:
+        - name: ChainlinkAggregator
+          file: ChainlinkAggregatorBUSD\abis\ChainlinkAggregator.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdatedBUSD
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: UlpManager
+    network: bsc
+    source:
+      address: "0x6DdB17895eBf0c24Fe41801D153569D9fda93990"
+      abi: UlpManager
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - HourlyUlpStat
+      abis:
+        - name: UlpManager
+          file: UlpManager\abis\UlpManager.json
+      eventHandlers:
+        - event: AddLiquidity(address,address,uint256,uint256,uint256,uint256,uint256)
+          handler: handleAddLiquidity
+        - event: RemoveLiquidity(address,address,uint256,uint256,uint256,uint256,uint256)
+          handler: handleRemoveLiquidity
+      file: UlpManager\UlpManager.wasm
+  - kind: ethereum/contract
+    name: OrderBook
+    network: bsc
+    source:
+      address: "0x18C46869736f7e2582d00Af4c2339e7bFc65F00C"
+      abi: OrderBook
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Order
+      abis:
+        - name: OrderBook
+          file: OrderBook\abis\OrderBook.json
+      eventHandlers:
+        - event: CreateIncreaseOrder(indexed
+            address,uint256,address,uint256,address,address,uint256,bool,uint256,bool,uint256)
+          handler: handleCreateIncreaseOrder
+        - event: CancelIncreaseOrder(indexed
+            address,uint256,address,uint256,address,address,uint256,bool,uint256,bool,uint256)
+          handler: handleCancelIncreaseOrder
+        - event: ExecuteIncreaseOrder(indexed
+            address,uint256,address,uint256,address,address,uint256,bool,uint256,bool,uint256,uint256)
+          handler: handleExecuteIncreaseOrder
+        - event: CreateDecreaseOrder(indexed
+            address,uint256,address,uint256,address,uint256,bool,uint256,bool,uint256)
+          handler: handleCreateDecreaseOrder
+        - event: CancelDecreaseOrder(indexed
+            address,uint256,address,uint256,address,uint256,bool,uint256,bool,uint256)
+          handler: handleCancelDecreaseOrder
+        - event: ExecuteDecreaseOrder(indexed
+            address,uint256,address,uint256,address,uint256,bool,uint256,bool,uint256,uint256)
+          handler: handleExecuteDecreaseOrder
+        - event: CreateSwapOrder(indexed
+            address,uint256,address[],uint256,uint256,uint256,bool,bool,uint256)
+          handler: handleCreateSwapOrder
+        - event: CancelSwapOrder(indexed
+            address,uint256,address[],uint256,uint256,uint256,bool,bool,uint256)
+          handler: handleCancelSwapOrder
+        - event: ExecuteSwapOrder(indexed
+            address,uint256,address[],uint256,uint256,uint256,uint256,bool,bool,uint256)
+          handler: handleExecuteSwapOrder
+      file: OrderBook\OrderBook.wasm
+  - kind: ethereum/contract
+    name: FastPriceEvents
+    network: bsc
+    source:
+      address: "0xC01b386fbBe9cdA27CBc200f5b7EE1f0C9D5f428"
+      abi: FastPriceEvents
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - FastPrice
+      abis:
+        - name: FastPriceEvents
+          file: FastPriceEvents\abis\FastPriceEvents.json
+      eventHandlers:
+        - event: PriceUpdate(address,uint256,address)
+          handler: handlePriceUpdate
+      file: ChainlinkAggregatorBNB\ChainlinkAggregatorBNB.wasm
+  - kind: ethereum/contract
+    name: Vault2
+    network: bsc
+    source:
+      address: "0x18d289ED284bd5Cd43cD29b3AB5CC69f4EeEB1ea"
+      abi: Vault
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - TradingStat
+      abis:
+        - name: Vault
+          file: Vault2\abis\VaultV2.json
+      eventHandlers:
+        - event: ClosePosition(bytes32,uint256,uint256,uint256,uint256,uint256,int256)
+          handler: handleClosePosition
+        - event: IncreasePosition(bytes32,address,address,address,uint256,uint256,bool,uint256,uint256)
+          handler: handleIncreasePosition
+        - event: DecreasePosition(bytes32,address,address,address,uint256,uint256,bool,uint256,uint256)
+          handler: handleDecreasePosition
+        - event: LiquidatePosition(bytes32,address,address,address,bool,uint256,uint256,uint256,int256,uint256)
+          handler: handleLiquidatePosition
+      file: Vault2\Vault2.wasm
+  - kind: ethereum/contract
+    name: Vault
+    network: bsc
+    source:
+      address: "0x18d289ED284bd5Cd43cD29b3AB5CC69f4EeEB1ea"
+      abi: Vault
+      startBlock: 24516765
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Swap
+        - IncreasePosition
+        - DecreasePosition
+        - HourlyVolume
+        - HourlyVolumeBySource
+        - HourlyVolumeByToken
+        - HourlyFee
+        - Transaction
+        - FundingFee
+      abis:
+        - name: Vault
+          file: Vault\abis\VaultV2.json
+      eventHandlers:
+        - event: UpdateFundingRate(address,uint256)
+          handler: handleUpdateFundingRate
+        - event: Swap(address,address,address,uint256,uint256,uint256,uint256)
+          handler: handleSwap
+        - event: CollectMarginFees(address,uint256,uint256)
+          handler: handleCollectMarginFees
+        - event: BuyUSDG(address,address,uint256,uint256,uint256)
+          handler: handleBuyUSDG
+        - event: SellUSDG(address,address,uint256,uint256,uint256)
+          handler: handleSellUSDG
+        - event: IncreasePosition(bytes32,address,address,address,uint256,uint256,bool,uint256,uint256)
+          handler: handleIncreasePosition
+        - event: DecreasePosition(bytes32,address,address,address,uint256,uint256,bool,uint256,uint256)
+          handler: handleDecreasePosition
+        - event: UpdatePosition(bytes32,uint256,uint256,uint256,uint256,uint256,int256,uint256)
+          handler: handleUpdatePosition
+        - event: LiquidatePosition(bytes32,address,address,address,bool,uint256,uint256,uint256,int256,uint256)
+          handler: handleLiquidatePosition
+        - event: IncreasePoolAmount(address,uint256)
+          handler: handleIncreasePoolAmount
+        - event: DecreasePoolAmount(address,uint256)
+          handler: handleDecreasePoolAmount
+        - event: IncreaseReservedAmount(address,uint256)
+          handler: handleIncreaseReservedAmount
+        - event: DecreaseReservedAmount(address,uint256)
+          handler: handleDecreaseReservedAmount
+        - event: IncreaseUsdgAmount(address,uint256)
+          handler: handleIncreaseUsdgAmount
+        - event: DecreaseUsdgAmount(address,uint256)
+          handler: handleDecreaseUsdgAmount
+      file: UlpManager\UlpManager.wasm
