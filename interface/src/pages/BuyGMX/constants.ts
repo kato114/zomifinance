@@ -1,8 +1,9 @@
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { ARBITRUM, AVALANCHE, MAINNET } from "config/chains";
 import { getContract } from "config/contracts";
 
 const ARBITRUM_GMX = getContract(ARBITRUM, "GMX");
 const AVALANCHE_GMX = getContract(AVALANCHE, "GMX");
+const ETH_GMX = getContract(MAINNET, "GMX");
 
 type Exchange = {
   name: string;
@@ -30,6 +31,15 @@ export const EXTERNAL_LINKS = {
     buyGmx: {
       banxa: "https://gmx.banxa.com/?coinType=GMX&fiatType=USD&fiatAmount=500&blockchain=avalanche",
       traderjoe: `https://traderjoexyz.com/trade?outputCurrency=${AVALANCHE_GMX}`,
+    },
+  },
+  [MAINNET]: {
+    bungee: `https://multitx.bungee.exchange/?toChainId=43114&toTokenAddress=${AVALANCHE_GMX}`,
+    banxa: "https://gmx.banxa.com/?coinType=AVAX&fiatType=USD&fiatAmount=500&blockchain=avalanche",
+    networkWebsite: "https://www.avax.network/",
+    buyGmx: {
+      banxa: "https://gmx.banxa.com/?coinType=GMX&fiatType=USD&fiatAmount=500&blockchain=avalanche",
+      traderjoe: `https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${ETH_GMX}`,
     },
   },
 };

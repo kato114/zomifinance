@@ -23,6 +23,7 @@ const FEED_ID_MAP = {
   AAVE_USD: "0xe3f0dede4b499c07e12475087ab1a084b5f93bc0",
   YFI_USD: "0x8a4d74003870064d41d4f84940550911fbfccf04",
   SPELL_USD: "0x8640b23468815902e011948f3ab173e1e83f9879",
+  APE_USD: "0xa99999b1475f24037e8b6947abbc7710676e77dd",
 };
 const timezoneOffset = -new Date().getTimezoneOffset() * 60;
 
@@ -57,7 +58,7 @@ function fillGaps(prices, periodSeconds) {
 }
 
 async function getChartPricesFromStats(chainId, symbol, period) {
-  console.log("---shark getChartPricesFromStats");
+  // console.log("---shark getChartPricesFromStats");
   if (["WBTC", "WETH", "WAVAX"].includes(symbol)) {
     symbol = symbol.substr(1);
   } else if (symbol === "BTC.b") {

@@ -39,7 +39,7 @@ export default function StatsTooltip({
       </p> */}
       <p className="Tooltip-row">
         <span className="label">
-          <Trans>{title} on Avalanche:</Trans>
+          <Trans>{title} on Ethereum:</Trans>
         </span>
         <span className="amount">
           {!isFloatNum && showDollar && "$"}

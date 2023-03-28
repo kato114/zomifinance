@@ -131,7 +131,7 @@ export default function ExchangeTVChart(props) {
   } = props;
   const [currentChart, setCurrentChart] = useState();
   const [currentSeries, setCurrentSeries] = useState();
-  console.log("---shark ExchangeTVChart");
+  // console.log("---shark ExchangeTVChart");
   let [period, setPeriod] = useLocalStorageSerializeKey([chainId, "Chart-period"], DEFAULT_PERIOD);
   if (!(period in CHART_PERIODS)) {
     period = DEFAULT_PERIOD;

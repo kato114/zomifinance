@@ -19,7 +19,7 @@ import {
 } from "./referralsHelper";
 import { AffiliateCodeForm } from "./AddAffiliateCode";
 import TooltipWithPortal from "../Tooltip/TooltipWithPortal";
-import { AVALANCHE, getExplorerUrl } from "config/chains";
+import { MAINNET, getExplorerUrl } from "config/chains";
 import { helperToast } from "lib/helperToast";
 import { bigNumberify, formatAmount } from "lib/numbers";
 import { getNativeToken, getToken } from "config/tokens";

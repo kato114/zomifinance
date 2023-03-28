@@ -71,7 +71,7 @@ function StakeModal(props) {
   } = props;
   const [isStaking, setIsStaking] = useState(false);
   const [isApproving, setIsApproving] = useState(false);
-  console.log("---shark StakeModal");
+  // console.log("---shark StakeModal");
   const { data: tokenAllowance } = useSWR(
     active && stakingTokenAddress && [active, chainId, stakingTokenAddress, "allowance", account, farmAddress],
     {
@@ -105,7 +105,7 @@ function StakeModal(props) {
 
     setIsStaking(true);
     const contract = new ethers.Contract(rewardRouterAddress, RewardRouter.abi, library.getSigner());
-    console.log("---shark onClickPrimary");
+    // console.log("---shark onClickPrimary");
     callContract(chainId, contract, stakeMethodName, [amount], {
       sentMsg: t`Stake submitted!`,
       failMsg: t`Stake failed.`,
@@ -310,7 +310,7 @@ function UnstakeModal(props) {
         {burnAmount && burnAmount.gt(0) && rewardReductionBasisPoints && rewardReductionBasisPoints.gt(0) && (
           <div className="Modal-note">
             Unstaking will burn&nbsp;
-            <a href="https://minmaxdex.gitbook.io/minmaxdex/rewards" target="_blank" rel="noopener noreferrer">
+            <a href="https://docs.zomi.financerewards" target="_blank" rel="noopener noreferrer">
               {formatAmount(burnAmount, 18, 4, true)} Multiplier Points
             </a>
             .&nbsp;
@@ -1071,7 +1071,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
       fetcher: contractFetcher(library, ReaderV2, [excludedEsGmxAccounts]),
     }
   );
-  console.log("---shark getVestingInfo");
+  // console.log("---shark getVestingInfo");
   const { data: vestingInfo } = useSWR(
     [`StakeV2:vestingInfo:${active}`, chainId, readerAddress, "getVestingInfo", account || PLACEHOLDER_ACCOUNT],
     {
@@ -1188,7 +1188,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     setStakingTokenSymbol("$ZOMI");
     setStakingTokenAddress(gmxAddress);
     setStakingFarmAddress(stakedGmxTrackerAddress);
-    setStakeMethodName("stakeGmx");
+    setStakeMethodName("stakeZomi");
   };
 
   const showStakeEsGmxModal = () => {
@@ -1199,7 +1199,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     setStakingTokenSymbol("esZOMI");
     setStakingTokenAddress(esGmxAddress);
     setStakingFarmAddress(AddressZero);
-    setStakeMethodName("stakeEsGmx");
+    setStakeMethodName("stakeEsZomi");
   };
 
   const showGmxVesterDepositModal = () => {
@@ -1242,7 +1242,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     setVesterDepositMaxReserveAmount(processedData.glpBalance);
     setVesterDepositValue("");
     setVesterDepositAddress(glpVesterAddress);
-    console.log("---shark showGlpVesterDepositModal");
+    // console.log("---shark showGlpVesterDepositModal");
   };
 
   const showGmxVesterWithdrawModal = () => {
@@ -1288,7 +1288,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     setUnstakeModalReservedAmount(vestingData.gmxVesterPairAmount);
     setUnstakeValue("");
     setUnstakingTokenSymbol("$ZOMI");
-    setUnstakeMethodName("unstakeGmx");
+    setUnstakeMethodName("unstakeZomi");
   };
 
   const showUnstakeEsGmxModal = () => {
@@ -1308,7 +1308,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
     setUnstakeModalReservedAmount(vestingData.gmxVesterPairAmount);
     setUnstakeValue("");
     setUnstakingTokenSymbol("esZOMI");
-    setUnstakeMethodName("unstakeEsGmx");
+    setUnstakeMethodName("unstakeEsZomi");
   };
 
   const renderMultiplierPointsLabel = useCallback(() => {
@@ -1325,7 +1325,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
             <Trans>
               Boost your rewards with Multiplier Points.&nbsp;
               <a
-                href="https://minmaxdex.gitbook.io/minmaxdex/rewards#multiplier-points"
+                href="https://docs.zomi.financerewards#multiplier-points"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -2100,7 +2100,7 @@ export default function StakeV2({ setPendingTxns, connectWallet }) {
               <br />
               Please read the{" "}
               <a
-                href="https://minmaxdex.gitbook.io/minmaxdex/how-it-works/rewards"
+                href="https://docs.zomi.financehow-it-works/rewards"
                 target="_blank"
                 rel="noopener noreferrer"
               >

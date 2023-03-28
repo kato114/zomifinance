@@ -54,7 +54,7 @@ import ExternalLink from "components/ExternalLink/ExternalLink";
 import SEO from "components/Common/SEO";
 import StatsTooltip from "components/StatsTooltip/StatsTooltip";
 import StatsTooltipRow from "components/StatsTooltip/StatsTooltipRow";
-import { ARBITRUM, AVALANCHE, getChainName } from "config/chains";
+import { ARBITRUM, MAINNET, getChainName } from "config/chains";
 import { getServerUrl } from "config/backend";
 import { contractFetcher } from "lib/contracts";
 import { useInfoTokens } from "domain/tokens";
@@ -62,7 +62,7 @@ import { getTokenBySymbol, getWhitelistedTokens, GLP_POOL_COLORS } from "config/
 import { bigNumberify, expandDecimals, formatAmount, formatKeyAmount, numberWithCommas } from "lib/numbers";
 import { useChainId } from "lib/chains";
 import { formatDate } from "lib/dates";
-const ACTIVE_CHAIN_IDS = [ARBITRUM, AVALANCHE];
+const ACTIVE_CHAIN_IDS = [ARBITRUM, MAINNET];
 
 const { AddressZero } = ethers.constants;
 
@@ -135,19 +135,19 @@ function getCurrentFeesUsd(tokenAddresses, fees, infoTokens) {
     const feeUsd = fees[i].mul(tokenInfo.contractMinPrice).div(expandDecimals(1, tokenInfo.decimals));
     currentFeesUsd = currentFeesUsd.add(feeUsd);
   }
-  console.log("---shark currentFeesUsd: ", currentFeesUsd);
+  // console.log("---shark currentFeesUsd: ", currentFeesUsd);
   return currentFeesUsd;
 }
 
 export default function DashboardV2() {
   const { active, library } = useWeb3React();
   const { chainId } = useChainId();
-  console.log("---shark DashboardV2 chainId: ", chainId);
+  // console.log("---shark DashboardV2 chainId: ", chainId);
   // const totalVolume = useTotalVolume();
   const [totalVolume, totalVolumeDelta] = useVolumeData();
 
   const chainName = getChainName(chainId);
-  console.log("---shark DashboardV2 chainName: ", chainName);
+  // console.log("---shark DashboardV2 chainName: ", chainName);
   // const { data: positionStats } = useSWR(
   //   ACTIVE_CHAIN_IDS.map((chainId) => getServerUrl(chainId, "/position_stats")),
   //   {
@@ -212,7 +212,7 @@ export default function DashboardV2() {
 
   const { infoTokens } = useInfoTokens(library, chainId, active, undefined, undefined);
   const { infoTokens: infoTokensArbitrum } = useInfoTokens(null, ARBITRUM, active, undefined, undefined);
-  const { infoTokens: infoTokensAvax } = useInfoTokens(null, AVALANCHE, active, undefined, undefined);
+  const { infoTokens: infoTokensAvax } = useInfoTokens(null, MAINNET, active, undefined, undefined);
 
   const { data: currentFees } = useSWR(
     infoTokensArbitrum[AddressZero].contractMinPrice && infoTokensAvax[AddressZero].contractMinPrice
@@ -275,7 +275,7 @@ export default function DashboardV2() {
   //   );
   const [totalFees, totalFeesDelta] = useFeesData();
 
-  console.log("---shark totalFees: ", totalFees?.[chainId]);
+  // console.log("---shark totalFees: ", totalFees?.[chainId]);
   const { gmxPrice, gmxPriceFromArbitrum, gmxPriceFromAvalanche } = useGmxPrice(
     chainId,
     { arbitrum: chainId === ARBITRUM ? library : undefined },
@@ -312,7 +312,7 @@ export default function DashboardV2() {
         : expandDecimals(1, USD_DECIMALS);
     glpMarketCap = glpPrice.mul(glpSupply).div(expandDecimals(1, GLP_DECIMALS));
   }
-  console.log("---shark glpPrice: ", glpPrice);
+  // console.log("---shark glpPrice: ", glpPrice);
 
   let tvl;
   if (glpMarketCap && gmxPrice && totalStakedGmx) {
@@ -419,7 +419,7 @@ export default function DashboardV2() {
               )}
               <br />
               <div>
-                <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/">
+                <ExternalLink href="https://docs.zomi.finance">
                   <Trans>More Info</Trans>
                 </ExternalLink>
               </div>
@@ -462,7 +462,7 @@ export default function DashboardV2() {
     },
   ];
 
-  const totalStatsStartDate = chainId === AVALANCHE ? t`06 Jan 2022` : t`01 Sep 2021`;
+  const totalStatsStartDate = chainId === MAINNET ? t`06 Jan 2022` : t`01 Sep 2021`;
 
   let stableGlp = 0;
   let totalGlp = 0;
@@ -540,19 +540,19 @@ export default function DashboardV2() {
           <div className="section-title-icon"></div>
           <div className="section-title-content">
             <div className="Page-title">
-              <Trans>Stats</Trans> {chainId === AVALANCHE && <img src={avalanche24Icon} alt="avalanche24Icon" />}
+              <Trans>Stats</Trans> {chainId === MAINNET && <img src={avalanche24Icon} alt="avalanche24Icon" />}
               {chainId === ARBITRUM && <img src={arbitrum24Icon} alt="arbitrum24Icon" />}
             </div>
             <div className="Page-description">
-              <Trans>
-                {chainName} Total Stats start from {totalStatsStartDate}.
+            <Trans>
+              {chainName} Total Stats start from {totalStatsStartDate}.<br /> For detailed stats:
               </Trans>{" "}
               {/* {chainId === ARBITRUM && (
-                <ExternalLink href="https://stats.minmax.exchange">https://stats.minmax.exchange</ExternalLink>
+                <ExternalLink href="https://stats.zomi.exchange">https://stats.zomi.exchange</ExternalLink>
               )}
               {chainId === AVALANCHE && (
-                <ExternalLink href="https://stats.minmax.exchange/avalanche">
-                  https://stats.minmax.exchange/avalanche
+                <ExternalLink href="https://stats.zomi.exchange/avalanche">
+                  https://stats.zomi.exchange/avalanche
                 </ExternalLink>
               )}
               . */}
@@ -692,7 +692,7 @@ export default function DashboardV2() {
                           <StatsTooltip
                             title={t`Fees`}
                             arbitrumValue={currentFees?.[ARBITRUM]}
-                            avaxValue={currentFees?.[AVALANCHE]}
+                            avaxValue={currentFees?.[MAINNET]}
                             total={currentFees?.total}
                           />
                         )}
@@ -769,7 +769,7 @@ export default function DashboardV2() {
           </div>
           <div className="Tab-title-section">
             <div className="Page-title">
-              <Trans>Tokens</Trans> {chainId === AVALANCHE && <img src={avalanche24Icon} alt="avalanche24Icon" />}
+              <Trans>Tokens</Trans> {chainId === MAINNET && <img src={avalanche24Icon} alt="avalanche24Icon" />}
               {chainId === ARBITRUM && <img src={arbitrum24Icon} alt="arbitrum24Icon" />}
             </div>
             <div className="Page-description">
@@ -815,7 +815,7 @@ export default function DashboardV2() {
                                   showDollar={true}
                                 /> */}
                                 <StatsTooltipRow
-                                  label={t`Price on Avalanche`}
+                                  label={t`Price on Ethereum`}
                                   value={formatAmount(gmxPriceFromAvalanche, USD_DECIMALS, 2, true)}
                                   showDollar={true}
                                 />
@@ -1004,7 +1004,7 @@ export default function DashboardV2() {
             <div className="token-table-wrapper App-card">
               <div className="App-card-title">
                 <Trans>$ZLP Index Composition</Trans>{" "}
-                {chainId === AVALANCHE && <img src={avalanche16Icon} alt={t`Avalanche Icon`} />}
+                {chainId === MAINNET && <img src={avalanche16Icon} alt={t`Avalanche Icon`} />}
                 {chainId === ARBITRUM && <img src={arbitrum16Icon} alt={t`Arbitrum Icon`} />}
               </div>
               <div className="App-card-divider"></div>

@@ -454,7 +454,7 @@ export function getNextToAmount(
     return defaultValue;
   }
 
-  console.log("---shark getNextToAmount");
+  // console.log("---shark getNextToAmount");
 
   if (fromTokenAddress === toTokenAddress) {
     return { amount: fromAmount };
@@ -1378,7 +1378,7 @@ export function getHomeUrl() {
     return "http://localhost:3010";
   }
 
-  return "https://app.minmax.exchange/";
+  return "/";
 }
 
 export function getAppBaseUrl() {
@@ -1386,7 +1386,7 @@ export function getAppBaseUrl() {
     return "http://localhost:3011/#";
   }
 
-  return "https://app.minmax.exchange/#";
+  return "/#";
 }
 
 export function getRootShareApiUrl() {
@@ -1402,7 +1402,7 @@ export function getTradePageUrl() {
     return "http://localhost:3011/#/trade";
   }
 
-  return "https://app.minmax.exchange/#/trade";
+  return "/#/trade";
 }
 
 export function importImage(name) {

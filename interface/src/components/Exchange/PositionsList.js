@@ -105,7 +105,7 @@ export default function PositionsList(props) {
   const [isPositionShareModalOpen, setIsPositionShareModalOpen] = useState(false);
   const [ordersToaOpen, setOrdersToaOpen] = useState(false);
   const [isHigherSlippageAllowed, setIsHigherSlippageAllowed] = useState(false);
-  console.log("---shark PositionsList");
+  // console.log("---shark PositionsList");
   const editPosition = (position) => {
     setCollateralTokenAddress(position.collateralToken.address);
     setPositionToEditKey(position.key);

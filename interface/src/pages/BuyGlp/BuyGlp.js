@@ -37,7 +37,7 @@ export default function BuyGlp(props) {
           <div className="Page-description">
             {/* <Trans> */}
             Purchase{" "}
-            <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/tokenomics/mlp">$ZLP tokens</ExternalLink> to
+            <ExternalLink href="https://docs.zomi.financetokenomics/mlp">$ZLP tokens</ExternalLink> to
             earn {nativeTokenSymbol} fees from swaps and leverages trading.
             {/* </Trans> */}
             <br />

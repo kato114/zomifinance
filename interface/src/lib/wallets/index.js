@@ -3,11 +3,10 @@ import {
   ARBITRUM,
   ARBITRUM_RPC_PROVIDERS,
   ARBITRUM_TESTNET,
-  AVALANCHE,
-  AVALANCHE_RPC_PROVIDERS,
+  MAINNET,
+  ETHEREUM_RPC_PROVIDERS,
   DEFAULT_CHAIN_ID,
   getChainName,
-  MAINNET,
   NETWORK_METADATA,
   SUPPORTED_CHAIN_IDS,
 } from "config/chains";
@@ -78,9 +77,9 @@ export const getWalletConnectConnector = () => {
   const chainId = localStorage.getItem(SELECTED_NETWORK_LOCAL_STORAGE_KEY) || DEFAULT_CHAIN_ID;
   return new WalletConnectConnector({
     rpc: {
-      [AVALANCHE]: AVALANCHE_RPC_PROVIDERS[0],
       [ARBITRUM]: ARBITRUM_RPC_PROVIDERS[0],
       [ARBITRUM_TESTNET]: "https://rinkeby.arbitrum.io/rpc",
+      [MAINNET]: ETHEREUM_RPC_PROVIDERS[0],
     },
     qrcode: true,
     chainId,

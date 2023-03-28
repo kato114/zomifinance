@@ -123,7 +123,7 @@ function Referrals({ connectWallet, setPendingTxns, pendingTxns }) {
               <Trans>
                 Get fee discounts and earn rebates through the $ZOMI referral program. For more information, please read
                 the{" "}
-                <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/how-it-works/referrals">
+                <ExternalLink href="https://zomi.gitbook.referrals">
                   referral program details
                 </ExternalLink>
                 .

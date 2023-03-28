@@ -4,7 +4,7 @@ import "./BuyGMX.css";
 import { useWeb3React } from "@web3-react/core";
 import { Trans, t } from "@lingui/macro";
 import Button from "components/Common/Button";
-import { ARBITRUM, AVALANCHE, getChainName, getConstant } from "config/chains";
+import { ARBITRUM, MAINNET, getChainName, getConstant } from "config/chains";
 import { switchNetwork } from "lib/wallets";
 import { useChainId } from "lib/chains";
 import Card from "components/Common/Card";
@@ -13,7 +13,7 @@ import ExternalLink from "components/ExternalLink/ExternalLink";
 
 import Banxa from "img/ic_banxa.svg";
 import Uniswap from "img/ic_uni_arbitrum.svg";
-import Traderjoe from "img/ic_traderjoe.png";
+import Traderjoe from "img/ic_uniswap.png";
 import Bungee from "img/ic_bungee.png";
 import O3 from "img/ic_o3.png";
 import Binance from "img/ic_binance.svg";
@@ -60,7 +60,7 @@ export default function BuyGMX() {
           <CentralisedExchanges chainId={chainId} externalLinks={externalLinks} />
         </div>
 
-        {isArbitrum ? (
+        {/* {isArbitrum ? (
           <div className="section-title-block mt-top">
             <div className="section-title-content">
               <div className="Page-title">
@@ -82,9 +82,9 @@ export default function BuyGMX() {
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
-        <div className="cards-row">
+        {/* <div className="cards-row">
           <Card title={t`Buy ${nativeTokenSymbol}`}>
             <div className="App-card-content">
               <div className="BuyGMXGLP-description">
@@ -136,7 +136,7 @@ export default function BuyGMX() {
               </div>
             </div>
           </Card>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </div>
@@ -162,11 +162,11 @@ function DecentralisedExchanges({ chainId, externalLinks }) {
         ) : (
           <div className="exchange-info-group">
             <div className="BuyGMXGLP-description">
-              <Trans>Buy $ZOMI from Traderjoe:</Trans>
+              <Trans>Buy $ZOMI from Uniswap:</Trans>
             </div>
             <div className="buttons-group col-1">
               <Button imgSrc={Traderjoe} href={externalLinks.buyGmx.traderjoe}>
-                <Trans>TraderJoe</Trans>
+                <Trans>Uniswap</Trans>
               </Button>
             </div>
           </div>

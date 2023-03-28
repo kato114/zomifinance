@@ -14,7 +14,7 @@ export default function ExchangeBanner(props) {
           Trade on $ZOMI and win <span className="ExchangeBanner-price">$250.000</span> in prizes! Live until November
           30th,{" "}
           <ExternalLink
-            href="https://minmaxdex.medium.com//gmx-trading-competition-win-250-000-usd-in-prizes-1346504b96f6"
+            href="https://zomifinance.medium.com//gmx-trading-competition-win-250-000-usd-in-prizes-1346504b96f6"
             className="ExchangeBanner-link"
           >
             click here

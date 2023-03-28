@@ -12,7 +12,7 @@ import cx from "classnames";
 import { Trans } from "@lingui/macro";
 import NetworkDropdown from "../NetworkDropdown/NetworkDropdown";
 import LanguagePopupHome from "../NetworkDropdown/LanguagePopupHome";
-import { ARBITRUM, ARBITRUM_TESTNET, AVALANCHE, getChainName } from "config/chains";
+import { ARBITRUM, ARBITRUM_TESTNET, getChainName, MAINNET } from "config/chains";
 import { switchNetwork } from "lib/wallets";
 import { useChainId } from "lib/chains";
 
@@ -44,10 +44,16 @@ export function AppHeaderUser({
     //   icon: "ic_arbitrum_24.svg",
     //   color: "#264f79",
     // },
+    // {
+    //   label: getChainName(AVALANCHE),
+    //   value: AVALANCHE,
+    //   icon: "ic_avalanche_24.svg",
+    //   color: "#E841424D",
+    // },
     {
-      label: getChainName(AVALANCHE),
-      value: AVALANCHE,
-      icon: "ic_avalanche_24.svg",
+      label: getChainName(MAINNET),
+      value: MAINNET,
+      icon: "ic_eth_24.svg",
       color: "#E841424D",
     },
   ];

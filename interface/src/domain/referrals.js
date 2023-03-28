@@ -7,23 +7,23 @@ import ReferralStorage from "abis/ReferralStorage.json";
 import { MAX_REFERRAL_CODE_LENGTH, isAddressZero, isHashZero } from "lib/legacy";
 import { getContract } from "config/contracts";
 import { REGEX_VERIFY_BYTES32 } from "components/Referrals/referralsHelper";
-import { ARBITRUM, AVALANCHE } from "config/chains";
-import { arbitrumReferralsGraphClient, avalancheReferralsGraphClient } from "lib/subgraph/clients";
+import { ARBITRUM, MAINNET } from "config/chains";
+import { arbitrumReferralsGraphClient, avalancheReferralsGraphClient, ethReferralsGraphClient } from "lib/subgraph/clients";
 import { callContract, contractFetcher } from "lib/contracts";
 import { helperToast } from "lib/helperToast";
 import { REFERRAL_CODE_KEY } from "config/localStorage";
 import { getProvider } from "lib/rpc";
 import { bigNumberify } from "lib/numbers";
 
-const ACTIVE_CHAINS = [ARBITRUM, AVALANCHE];
+const ACTIVE_CHAINS = [MAINNET];
 const DISTRIBUTION_TYPE_REBATES = "1";
 const DISTRIBUTION_TYPE_DISCOUNT = "2";
 
 function getGraphClient(chainId) {
   if (chainId === ARBITRUM) {
     return arbitrumReferralsGraphClient;
-  } else if (chainId === AVALANCHE) {
-    return avalancheReferralsGraphClient;
+  } else if (chainId === MAINNET) {
+    return ethReferralsGraphClient;
   }
   throw new Error(`Unsupported chain ${chainId}`);
 }
@@ -102,17 +102,12 @@ export function useUserCodesOnAllChain(account) {
             });
         })
       );
-      const [codeOwnersOnAvax = [], codeOwnersOnArbitrum = []] = await Promise.all([
-        getCodeOwnersData(AVALANCHE, account, arbitrumCodes),
-        getCodeOwnersData(ARBITRUM, account, avalancheCodes),
+      const [codeOwnersOnEthereum = []] = await Promise.all([
+        getCodeOwnersData(MAINNET, account, arbitrumCodes),
       ]);
 
       setData({
-        [ARBITRUM]: codeOwnersOnAvax.reduce((acc, cv) => {
-          acc[cv.code] = cv;
-          return acc;
-        }, {}),
-        [AVALANCHE]: codeOwnersOnArbitrum.reduce((acc, cv) => {
+        [MAINNET]: codeOwnersOnEthereum.reduce((acc, cv) => {
           acc[cv.code] = cv;
           return acc;
         }, {}),
@@ -190,7 +185,7 @@ export function useReferralsData(chainId, account) {
       }
     `;
     setLoading(true);
-    console.log("---shark useReferralsData");
+    // console.log("---shark useReferralsData");
     let typeIds = [DISTRIBUTION_TYPE_REBATES, DISTRIBUTION_TYPE_DISCOUNT];
     let account1 =  (account || "").toLowerCase();
     let timestamp =  startOfDayTimestamp;

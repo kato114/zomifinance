@@ -6,21 +6,21 @@ import Footer from "components/Footer/Footer";
 import { getPageTitle } from "lib/legacy";
 
 import arbitrumIcon from "img/ic_arbitrum_16.svg";
-import avalancheIcon from "img/ic_avalanche_16.svg";
+import avalancheIcon from "img/ic_weth_16.svg";
 
 import "./Ecosystem.css";
 import ExternalLink from "components/ExternalLink/ExternalLink";
-import { AVALANCHE } from "config/chains";
+import { MAINNET } from "config/chains";
 import { t } from "@lingui/macro";
 
 const NETWORK_ICONS = {
   // [AVALANCHE]: arbitrumIcon,
-  [AVALANCHE]: avalancheIcon,
+  [MAINNET]: avalancheIcon,
 };
 
 const NETWORK_ICON_ALTS = {
   // [AVALANCHE]: "Arbitrum Icon",
-  [AVALANCHE]: "Avalanche Icon",
+  [MAINNET]: "Ethereum Icon",
 };
 
 export default function Ecosystem() {
@@ -34,10 +34,10 @@ export default function Ecosystem() {
     // },
     {
       title: "$ZOMI Stats",
-      link: "https://stats.minmax.exchange/",
-      linkLabel: "stats.minmax.exchange",
+      link: "https://stats.zomi.exchange/",
+      linkLabel: "stats.zomi.exchange",
       about: t`$ZOMI Stats Page`,
-      chainIds: [AVALANCHE],
+      chainIds: [MAINNET],
     },
     // {
     //   title: "$ZOMI Proposals",
@@ -48,10 +48,10 @@ export default function Ecosystem() {
     // },
     {
       title: "$ZOMI Announcements",
-      link: "https://t.me/minmaxdex",
+      link: "https://t.me/zomichat",
       linkLabel: "t.me",
       about: t`$ZOMI Announcements and Updates`,
-      chainIds: [AVALANCHE],
+      chainIds: [MAINNET],
     },
   ];
 
@@ -76,11 +76,11 @@ export default function Ecosystem() {
     // },
     // {
     //   title: "$ZOMI Positions Bot",
-    //   link: "https://t.me/minmaxdex",
+    //   link: "https://t.me/zomichat",
     //   linkLabel: "t.me",
     //   about: t`Telegram bot for $ZOMI position updates`,
     //   creatorLabel: "@zhongfu",
-    //   creatorLink: "https://t.me/minmaxdex",
+    //   creatorLink: "https://t.me/zomichat",
     //   chainIds: [AVALANCHE],
     // },
     // {
@@ -98,7 +98,7 @@ export default function Ecosystem() {
     //   linkLabel: "degenclip.com",
     //   about: t`Community curated tweet collection`,
     //   creatorLabel: "@ox21l",
-    //   creatorLink: "https://t.me/minmaxdex",
+    //   creatorLink: "https://t.me/zomichat",
     //   chainIds: [AVALANCHE],
     // },
     // {
@@ -116,7 +116,7 @@ export default function Ecosystem() {
     //   linkLabel: "docs.google.com",
     //   about: t`Returns calculator for $ZOMI and $ZLP`,
     //   creatorLabel: "@minmaxdex",
-    //   creatorLink: "https://twitter.com/minmaxdex",
+    //   creatorLink: "https://twitter.com/zomi.finance",
     //   chainIds: [AVALANCHE],
     // },
     // {
@@ -125,25 +125,25 @@ export default function Ecosystem() {
     //   linkLabel: "docs.google.com",
     //   about: t`Optimal compound interval calculator`,
     //   creatorLabel: "@ChasenKaminsky",
-    //   creatorLink: "https://twitter.com/minmaxdex",
+    //   creatorLink: "https://twitter.com/zomi.finance",
     //   chainIds: [AVALANCHE],
     // },
     // {
     //   title: "$ZOMI Trading Stats",
-    //   link: "https://t.me/minmaxdex",
+    //   link: "https://t.me/zomichat",
     //   linkLabel: "t.me",
     //   about: t`Telegram bot for Open Interest on $ZOMI`,
     //   creatorLabel: "@minmaxdex",
-    //   creatorLink: "https://twitter.com/minmaxdex",
+    //   creatorLink: "https://twitter.com/zomi.finance",
     //   chainIds: [AVALANCHE],
     // },
     // {
     //   title: "$ZOMI Staking Bot",
-    //   link: "https://t.me/minmaxdex",
+    //   link: "https://t.me/zomichat",
     //   linkLabel: "t.me",
     //   about: t`$ZOMI staking rewards updates and insights`,
     //   creatorLabel: "@minmaxdex",
-    //   creatorLink: "https://twitter.com/minmaxdex",
+    //   creatorLink: "https://twitter.com/zomi.finance",
     //   chainIds: [AVALANCHE],
     // },
     // {
@@ -152,7 +152,7 @@ export default function Ecosystem() {
     //   linkLabel: "",
     //   about: t`$ZOMI staking calculator`,
     //   creatorLabel: "@minmaxdex",
-    //   creatorLink: "https://t.me/minmaxdex",
+    //   creatorLink: "https://t.me/zomichat",
     //   chainIds: [AVALANCHE],
     // },
   ];
@@ -164,7 +164,7 @@ export default function Ecosystem() {
     //   linkLabel: "",
     //   about: t`Dashboard for $ZOMI referral stats`,
     //   creatorLabel: "@minmaxdex",
-    //   creatorLink: "https://twitter.com/minmaxdex",
+    //   creatorLink: "https://twitter.com/zomi.finance",
     //   chainIds: [AVALANCHE],
     // },
     // {
@@ -173,7 +173,7 @@ export default function Ecosystem() {
     //   linkLabel: "",
     //   about: t`$ZOMI explorer for stats and traders`,
     //   creatorLabel: "@minmaxdex",
-    //   creatorLink: "https://t.me/minmaxdex",
+    //   creatorLink: "https://t.me/zomichat",
     //   chainIds: [AVALANCHE],
     // },
     // {
@@ -182,7 +182,7 @@ export default function Ecosystem() {
     //   linkLabel: "",
     //   about: t`Financial reports and protocol analytics`,
     //   creatorLabel: "@minmaxdex",
-    //   creatorLink: "https://t.me/minmaxdex",
+    //   creatorLink: "https://t.me/zomichat",
     //   chainIds: [AVALANCHE],
     // },
     // {
@@ -191,7 +191,7 @@ export default function Ecosystem() {
     //   linkLabel: "",
     //   about: t`$ZOMI fundamentals`,
     //   creatorLabel: "@minmaxdex",
-    //   creatorLink: "https://twitter.com/minmaxdex",
+    //   creatorLink: "https://twitter.com/zomi.finance",
     //   chainIds: [AVALANCHE],
     // },
     // {
@@ -200,7 +200,7 @@ export default function Ecosystem() {
     //   linkLabel: "",
     //   about: t`Fees generated by $ZOMI`,
     //   creatorLabel: "@minmaxdex",
-    //   creatorLink: "https://twitter.com/minmaxdex",
+    //   creatorLink: "https://twitter.com/zomi.finance",
     //   chainIds: [AVALANCHE],
     // },
     // {
@@ -373,35 +373,35 @@ export default function Ecosystem() {
   const telegramGroups = [
     {
       title: "$ZOMI",
-      link: "https://t.me/minmaxdex",
+      link: "https://t.me/zomichat",
       linkLabel: "t.me",
       about: t`Telegram Group`,
     },
     {
-      title: "$ZOMI (Chinese)",
-      link: "https://t.me/minmaxdex",
+      title: "$ZOMI",
+      link: "https://t.me/zomifinance",
       linkLabel: "t.me",
-      about: t`Telegram Group (Chinese)`,
+      about: t`Telegram Announcements`,
     },
-    {
-      title: "$ZOMI (Portuguese)",
-      link: "https://t.me/minmaxdex",
-      linkLabel: "t.me",
-      about: t`Telegram Group (Portuguese)`,
-    },
-    {
-      title: "$ZOMI Trading Chat",
-      link: "https://t.me/minmaxdex",
-      linkLabel: "t.me",
-      about: t`$ZOMI community discussion`,
-    },
+    // {
+    //   title: "$ZOMI (Portuguese)",
+    //   link: "https://t.me/zomichat",
+    //   linkLabel: "t.me",
+    //   about: t`Telegram Group (Portuguese)`,
+    // },
+    // {
+    //   title: "$ZOMI Trading Chat",
+    //   link: "https://t.me/zomichat",
+    //   linkLabel: "t.me",
+    //   about: t`$ZOMI community discussion`,
+    // },
   ];
 
   return (
     <SEO title={getPageTitle("Ecosystem Projects")}>
       <div className="default-container page-layout">
         <div>
-          <div className="section-title-block">
+          {/* <div className="section-title-block">
             <div className="section-title-icon" />
             <div className="section-title-content">
               <div className="Page-title">
@@ -411,8 +411,8 @@ export default function Ecosystem() {
                 <Trans>$ZOMI ecosystem pages.</Trans>
               </div>
             </div>
-          </div>
-          <div className="DashboardV2-projects">
+          </div> */}
+          {/* <div className="DashboardV2-projects">
             {gmxPages.map((item) => {
               const linkLabel = item.linkLabel ? item.linkLabel : item.link;
               return (
@@ -445,8 +445,8 @@ export default function Ecosystem() {
                 </div>
               );
             })}
-          </div>
-          <div className="Tab-title-section">
+          </div> */}
+          {/* <div className="Tab-title-section">
             <div className="Page-title">
               <Trans>Community Projects</Trans>
             </div>
@@ -596,7 +596,7 @@ export default function Ecosystem() {
                 </div>
               );
             })}
-          </div>
+          </div> */}
           <div className="Tab-title-section">
             <div className="Page-title">
               <Trans>Telegram Groups</Trans>

@@ -11,7 +11,7 @@ import { useWeb3React } from "@web3-react/core";
 
 import APRLabel from "../APRLabel/APRLabel";
 import { HeaderLink } from "../Header/HeaderLink";
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { ARBITRUM, MAINNET } from "config/chains";
 import { switchNetwork } from "lib/wallets";
 import { useChainId } from "lib/chains";
 import ExternalLink from "components/ExternalLink/ExternalLink";
@@ -71,19 +71,19 @@ export default function TokenCard({ showRedirectModal, redirectPopupTimestamp })
           </div>
           <div className="Home-token-card-option-apr">
             {/* <Trans>Arbitrum APR:</Trans> <APRLabel chainId={ARBITRUM} label="gmxAprTotal" />,{" "} */}
-            <Trans>Avalanche APR:</Trans> <APRLabel chainId={AVALANCHE} label="gmxAprTotal" key="AVALANCHE" />
+            <Trans>Ethereum APR:</Trans> <APRLabel chainId={MAINNET} label="gmxAprTotal" key="MAINNET" />
           </div>
           <div className="Home-token-card-option-action">
             <div className="buy">
-              {/* <BuyLink to="/buy_mmx" className="default-btn" network={ARBITRUM}>
+              {/* <BuyLink to="/buy_ZOMI" className="default-btn" network={ARBITRUM}>
                 <Trans>Buy on Arbitrum</Trans>
               </BuyLink> */}
-              <BuyLink to="/buy_mmx" className="default-btn" network={AVALANCHE}>
+              <BuyLink to="/buy_ZOMI" className="default-btn" network={MAINNET}>
                 <Trans>Buy</Trans>
               </BuyLink>
             </div>
             <ExternalLink
-              href="https://minmaxdex.gitbook.io/minmaxdex/tokenomics/mmx"
+              href="https://docs.zomi.financetokenomics/mmx"
               className="default-btn read-more"
             >
               <Trans>Read more</Trans>
@@ -101,19 +101,19 @@ export default function TokenCard({ showRedirectModal, redirectPopupTimestamp })
           </div>
           <div className="Home-token-card-option-apr">
             {/* <Trans>Arbitrum APR:</Trans> <APRLabel chainId={ARBITRUM} label="glpAprTotal" key="ARBITRUM" />,{" "} */}
-            <Trans>Avalanche APR:</Trans> <APRLabel chainId={AVALANCHE} label="glpAprTotal" key="AVALANCHE" />
+            <Trans>Ethereum APR:</Trans> <APRLabel chainId={MAINNET} label="glpAprTotal" key="MAINNET" />
           </div>
           <div className="Home-token-card-option-action">
             <div className="buy">
               {/* <BuyLink to="/buy_mlp" className="default-btn" network={ARBITRUM}>
                 <Trans>Buy on Arbitrum</Trans>
               </BuyLink> */}
-              <BuyLink to="/buy_mlp" className="default-btn" network={AVALANCHE}>
+              <BuyLink to="/buy_mlp" className="default-btn" network={MAINNET}>
                 <Trans>Buy</Trans>
               </BuyLink>
             </div>
             <a
-              href="https://minmaxdex.gitbook.io/minmaxdex/tokenomics/mlp"
+              href="https://docs.zomi.financetokenomics/mlp"
               target="_blank"
               rel="noreferrer"
               className="default-btn read-more"

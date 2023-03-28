@@ -31,7 +31,7 @@ const USD_DECIMALS = 30;
 export default function Actions() {
   const { account } = useParams();
   const { active, library } = useWeb3React();
-  console.log("---shark positionData");
+  // console.log("---shark positionData");
   const { chainId } = useChainId();
   const nativeTokenAddress = getContract(chainId, "NATIVE_TOKEN");
   const vaultAddress = getContract(chainId, "Vault");
@@ -58,7 +58,7 @@ export default function Actions() {
   const { data: tokenBalances } = useSWR([active, chainId, readerAddress, "getTokenBalances", account], {
     fetcher: contractFetcher(library, Reader, [tokenAddresses]),
   });
-  console.log("---shark positionData");
+  // console.log("---shark positionData");
   const { data: positionData } = useSWR([active, chainId, readerAddress, "getPositions", vaultAddress, account], {
     fetcher: contractFetcher(library, Reader, [
       positionQuery.collateralTokens,

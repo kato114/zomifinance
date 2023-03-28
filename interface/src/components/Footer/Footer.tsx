@@ -14,24 +14,24 @@ import { isHomeSite, getAppBaseUrl, shouldShowRedirectModal } from "lib/legacy";
 const footerLinks = {
   home: [
     { text: t`Terms and Conditions`, link: "/terms-and-conditions" },
-    { text: t`Referral Terms`, link: "https://minmaxdex.gitbook.io/minmaxdex/how-it-works/referrals", external: true },
-    { text: t`Media Kit`, link: "https://minmaxdex.gitbook.io/minmaxdex/", external: true },
+    { text: t`Referral Terms`, link: "https://zomi.gitbook.referrals", external: true },
+    { text: t`Media Kit`, link: "https://docs.zomi.finance", external: true },
     // { text: "Jobs", link: "/jobs", isAppLink: true },
   ],
   app: [
     { text: t`Terms and Conditions`, link: "/terms-and-conditions" },
     { text: t`Referral Terms`, link: "/referral-terms" },
-    { text: t`Media Kit`, link: "https://minmaxdex.gitbook.io/minmaxdex/", external: true },
+    { text: t`Media Kit`, link: "https://docs.zomi.finance", external: true },
     // { text: "Jobs", link: "/jobs" },
   ],
 };
 
 const socialLinks = [
-  { link: "https://twitter.com/minmaxdex", name: "Twitter", icon: twitterIcon },
-  { link: "https://minmaxdex.medium.com/", name: "Medium", icon: mediumIcon },
-  { link: "https://github.com/MinMax-Dex", name: "Github", icon: githubIcon },
-  { link: "https://t.me/minmaxdex", name: "Telegram", icon: telegramIcon },
-  { link: "https://discord.gg/minmax", name: "Discord", icon: discordIcon },
+  { link: "https://twitter.com/zomi.finance", name: "Twitter", icon: twitterIcon },
+  { link: "https://zomifinance.medium.com/", name: "Medium", icon: mediumIcon },
+  { link: "https://github.com/zomi", name: "Github", icon: githubIcon },
+  { link: "https://t.me/zomichat", name: "Telegram", icon: telegramIcon },
+  { link: "https://discord.gg/senshilabs", name: "Discord", icon: discordIcon },
 ];
 
 type Props = { showRedirectModal?: (to: string) => void; redirectPopupTimestamp?: () => void };

@@ -16,7 +16,7 @@ import ohmArbitrum from "img/ic_olympus_arbitrum.svg";
 
 import { Trans } from "@lingui/macro";
 import Button from "components/Common/Button";
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { ARBITRUM, MAINNET } from "config/chains";
 import { switchNetwork } from "lib/wallets";
 import { useChainId } from "lib/chains";
 import ExternalLink from "components/ExternalLink/ExternalLink";
@@ -114,14 +114,14 @@ export default function BuyGMX() {
             </div>
           </div>
         )}
-        {chainId === AVALANCHE && (
+        {chainId === MAINNET && (
           <div className="section-title-block">
             <div className="section-title-content">
               <div className="Page-title">
-                <Trans>Buy / Transfer AVAX</Trans>
+                <Trans>Buy / Transfer ETH</Trans>
               </div>
               <div className="Page-description">
-                <Trans>Avax is needed on Avalanche to purchase $ZOMI.</Trans>
+                <Trans>ETH is needed on Ethereum to purchase $ZOMI.</Trans>
                 <br />
                 {/* <Trans>
                   To purchase $ZOMI on <span onClick={() => onNetworkSelect(ARBITRUM)}>Arbitrum</span>, please change your
@@ -131,17 +131,17 @@ export default function BuyGMX() {
             </div>
           </div>
         )}
-        {chainId === AVALANCHE && (
+        {chainId === MAINNET && (
           <div className="BuyGMXGLP-panel">
             <div className="App-card no-height">
               <div className="App-card-title">
-                <Trans>Buy AVAX</Trans>
+                <Trans>Buy ETH</Trans>
               </div>
               <div className="App-card-divider" />
               <div className="App-card-content">
                 <div className="BuyGMXGLP-description">
                   <Trans>
-                    You can buy AVAX directly on <ExternalLink href="https://www.avax.network/">Avalanche</ExternalLink>{" "}
+                    You can buy ETH directly on <ExternalLink href="https://www.avax.network/">Ethereum</ExternalLink>{" "}
                     using Banxa:
                   </Trans>
                 </div>
@@ -187,7 +187,7 @@ export default function BuyGMX() {
             </div>
           </div>
         )}
-        {chainId === AVALANCHE && (
+        {chainId === MAINNET && (
           <div className="BuyGMXGLP-panel">
             <div className="buy-card">
               <div className="section-title-content">
@@ -208,7 +208,7 @@ export default function BuyGMX() {
                     <Button
                       size="xl"
                       imgSrc={gmxAvax}
-                      href="https://traderjoexyz.com/trade?outputCurrency=0xDc2C540Fd99eb5dC424095C8C6A63f7c805D46e9#/"
+                      href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0x6d8ebbaab26a1f40abd1ed14b702a84c7b4f2107"
                     >
                       <Trans>Purchase $ZOMI</Trans>
                     </Button>

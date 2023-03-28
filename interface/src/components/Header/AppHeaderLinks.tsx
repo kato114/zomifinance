@@ -106,7 +106,7 @@ export function AppHeaderLinks({
         </HeaderLink>
       </div>
       <div className="App-header-link-container">
-        <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/">
+        <ExternalLink href="https://docs.zomi.finance">
           <Trans>About</Trans>
         </ExternalLink>
       </div>

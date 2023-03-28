@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useMemo} from "react";
 import Footer from "components/Footer/Footer";
 import "./Home.css";
 
@@ -16,16 +16,14 @@ import tradingIcon from "img/ic_trading.svg";
 import useSWR from "swr";
 
 import { USD_DECIMALS, getTotalVolumeSum } from "lib/legacy";
-
-import { useUserStat } from "domain/legacy";
+import { useUserStat, useVolumeData, useTradersData, formatNumber } from "domain/legacy";
 
 import TokenCard from "components/TokenCard/TokenCard";
 import { Trans } from "@lingui/macro";
 import { HeaderLink } from "components/Header/HeaderLink";
-import { ARBITRUM, AVALANCHE } from "config/chains";
+import { ARBITRUM, MAINNET } from "config/chains";
 import { getServerUrl } from "config/backend";
 import { bigNumberify, formatAmount, numberWithCommas } from "lib/numbers";
-
 export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
   // const [openedFAQIndex, setOpenedFAQIndex] = useState(null)
   // const faqContent = [{
@@ -56,68 +54,69 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
 
   // ARBITRUM
 
-  const arbitrumPositionStatsUrl = getServerUrl(ARBITRUM, "/position_stats");
-  const { data: arbitrumPositionStats } = useSWR([arbitrumPositionStatsUrl], {
-    fetcher: (...args) => fetch(...args).then((res) => res.json()),
-  });
+  // const arbitrumPositionStatsUrl = getServerUrl(ARBITRUM, "/position_stats");
+  // const { data: arbitrumPositionStats } = useSWR([arbitrumPositionStatsUrl], {
+  //   fetcher: (...args) => fetch(...args).then((res) => res.json()),
+  // });
 
-  const arbitrumTotalVolumeUrl = getServerUrl(ARBITRUM, "/total_volume");
-  const { data: arbitrumTotalVolume } = useSWR([arbitrumTotalVolumeUrl], {
-    fetcher: (...args) => fetch(...args).then((res) => res.json()),
-  });
+  // const arbitrumTotalVolumeUrl = getServerUrl(ARBITRUM, "/total_volume");
+  // const { data: arbitrumTotalVolume } = useSWR([arbitrumTotalVolumeUrl], {
+  //   fetcher: (...args) => fetch(...args).then((res) => res.json()),
+  // });
 
-  // AVALANCHE
+  // const avalanchePositionStatsUrl = getServerUrl(MAINNET, "/position_stats");
+  // const { data: avalanchePositionStats } = useSWR([avalanchePositionStatsUrl], {
+  //   fetcher: (...args) => fetch(...args).then((res) => res.json()),
+  // });
 
-  const avalanchePositionStatsUrl = getServerUrl(AVALANCHE, "/position_stats");
-  const { data: avalanchePositionStats } = useSWR([avalanchePositionStatsUrl], {
-    fetcher: (...args) => fetch(...args).then((res) => res.json()),
-  });
+  // const avalancheTotalVolumeUrl = getServerUrl(MAINNET, "/total_volume");
+  // const { data: avalancheTotalVolume } = useSWR([avalancheTotalVolumeUrl], {
+  //   fetcher: (...args) => fetch(...args).then((res) => res.json()),
+  // });
 
-  const avalancheTotalVolumeUrl = getServerUrl(AVALANCHE, "/total_volume");
-  const { data: avalancheTotalVolume } = useSWR([avalancheTotalVolumeUrl], {
-    fetcher: (...args) => fetch(...args).then((res) => res.json()),
-  });
+  // // Total Volume
 
-  // Total Volume
+  // const arbitrumTotalVolumeSum = getTotalVolumeSum(arbitrumTotalVolume);
+  // const avalancheTotalVolumeSum = getTotalVolumeSum(avalancheTotalVolume);
 
-  const arbitrumTotalVolumeSum = getTotalVolumeSum(arbitrumTotalVolume);
-  const avalancheTotalVolumeSum = getTotalVolumeSum(avalancheTotalVolume);
-
-  let totalVolumeSum = bigNumberify(0);
-  if (arbitrumTotalVolumeSum && avalancheTotalVolumeSum) {
-    totalVolumeSum = totalVolumeSum.add(arbitrumTotalVolumeSum);
-    totalVolumeSum = totalVolumeSum.add(avalancheTotalVolumeSum);
-  }
-
+  // let totalVolumeSum = bigNumberify(0);
+  // if (arbitrumTotalVolumeSum && avalancheTotalVolumeSum) {
+  //   totalVolumeSum = totalVolumeSum.add(arbitrumTotalVolumeSum);
+  //   totalVolumeSum = totalVolumeSum.add(avalancheTotalVolumeSum);
+  // }
+  const [totalVolume, totalVolumeDelta] = useVolumeData();
+  
   // Open Interest
 
-  let openInterest = bigNumberify(0);
-  if (
-    arbitrumPositionStats &&
-    arbitrumPositionStats.totalLongPositionSizes &&
-    arbitrumPositionStats.totalShortPositionSizes
-  ) {
-    openInterest = openInterest.add(arbitrumPositionStats.totalLongPositionSizes);
-    openInterest = openInterest.add(arbitrumPositionStats.totalShortPositionSizes);
-  }
+  // let openInterest = bigNumberify(0);
+  // if (
+  //   arbitrumPositionStats &&
+  //   arbitrumPositionStats.totalLongPositionSizes &&
+  //   arbitrumPositionStats.totalShortPositionSizes
+  // ) {
+  //   openInterest = openInterest.add(arbitrumPositionStats.totalLongPositionSizes);
+  //   openInterest = openInterest.add(arbitrumPositionStats.totalShortPositionSizes);
+  // }
 
-  if (
-    avalanchePositionStats &&
-    avalanchePositionStats.totalLongPositionSizes &&
-    avalanchePositionStats.totalShortPositionSizes
-  ) {
-    openInterest = openInterest.add(avalanchePositionStats.totalLongPositionSizes);
-    openInterest = openInterest.add(avalanchePositionStats.totalShortPositionSizes);
-  }
+  // if (
+  //   avalanchePositionStats &&
+  //   avalanchePositionStats.totalLongPositionSizes &&
+  //   avalanchePositionStats.totalShortPositionSizes
+  // ) {
+  //   openInterest = openInterest.add(avalanchePositionStats.totalLongPositionSizes);
+  //   openInterest = openInterest.add(avalanchePositionStats.totalShortPositionSizes);
+  // }
+
+  const [openInterest, openInterestDelta] = useTradersData();
 
   // user stat
-  const arbitrumUserStats = useUserStat(ARBITRUM);
-  const avalancheUserStats = useUserStat(AVALANCHE);
+  // const arbitrumUserStats = useUserStat(ARBITRUM);
+  const avalancheUserStats = useUserStat(MAINNET);
   let totalUsers = 0;
 
-  if (arbitrumUserStats && arbitrumUserStats.uniqueCount) {
-    totalUsers += arbitrumUserStats.uniqueCount;
-  }
+  // if (arbitrumUserStats && arbitrumUserStats.uniqueCount) {
+  //   totalUsers += arbitrumUserStats.uniqueCount;
+  // }
 
   if (avalancheUserStats && avalancheUserStats.uniqueCount) {
     totalUsers += avalancheUserStats.uniqueCount;
@@ -164,7 +163,9 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
               <div className="Home-latest-info__title">
                 <Trans>Total Trading Volume</Trans>
               </div>
-              <div className="Home-latest-info__value">${formatAmount(totalVolumeSum, USD_DECIMALS, 0, true)}</div>
+              {/* <div className="Home-latest-info__value">${formatAmount(totalVolume, USD_DECIMALS, 0, true)}</div> */}
+              <div className="Home-latest-info__value">{totalVolume ? formatNumber(totalVolume, { currency: true, compact: false }) : `$0`}</div>
+
             </div>
           </div>
           <div className="Home-latest-info-block">
@@ -173,7 +174,8 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
               <div className="Home-latest-info__title">
                 <Trans>Open Interest</Trans>
               </div>
-              <div className="Home-latest-info__value">${formatAmount(openInterest, USD_DECIMALS, 0, true)}</div>
+              {/* <div className="Home-latest-info__value">${formatAmount(openInterest, USD_DECIMALS, 0, true)}</div> */}
+              <div className="Home-latest-info__value">{openInterest ? formatNumber(openInterest, { currency: true, compact: false }) : `$0`}</div>
             </div>
           </div>
           <div className="Home-latest-info-block">
@@ -257,7 +259,7 @@ export default function Home({ showRedirectModal, redirectPopupTimestamp }) {
           <div className="Home-faqs-introduction">
             <div className="Home-faqs-introduction__title">FAQs</div>
             <div className="Home-faqs-introduction__description">Most asked questions. If you wish to learn more, please head to our Documentation page.</div>
-            <a href="https://minmaxdex.gitbook.io/minmaxdex/" className="default-btn Home-faqs-documentation">Documentation</a>
+            <a href="https://docs.zomi.finance" className="default-btn Home-faqs-documentation">Documentation</a>
           </div>
           <div className="Home-faqs-content-block">
             {

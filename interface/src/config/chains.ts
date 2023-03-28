@@ -10,11 +10,11 @@ export const ARBITRUM_TESTNET = 421611;
 export const ARBITRUM = 42161;
 
 // TODO take it from web3
-export const DEFAULT_CHAIN_ID = AVALANCHE;
+export const DEFAULT_CHAIN_ID = MAINNET;
 export const CHAIN_ID = DEFAULT_CHAIN_ID;
 
 // export const SUPPORTED_CHAIN_IDS = [ARBITRUM, AVALANCHE];
-export const SUPPORTED_CHAIN_IDS = [AVALANCHE];
+export const SUPPORTED_CHAIN_IDS = [MAINNET];
 
 if (isDevelopment()) {
   SUPPORTED_CHAIN_IDS.push(ARBITRUM_TESTNET);
@@ -38,24 +38,39 @@ export const CHAIN_NAMES_MAP = {
 export const GAS_PRICE_ADJUSTMENT_MAP = {
   [ARBITRUM]: "0",
   [AVALANCHE]: "3000000000", // 3 gwei
+  [MAINNET]: "0",
 };
 
 export const MAX_GAS_PRICE_MAP = {
   [AVALANCHE]: "200000000000", // 200 gwei
+  [MAINNET]: "0"
 };
 
 export const HIGH_EXECUTION_FEES_MAP = {
   [ARBITRUM]: 3, // 3 USD
   [AVALANCHE]: 3, // 3 USD
+  [MAINNET]: 3
 };
 
 const constants = {
+  // [MAINNET]: {
+  //   nativeTokenSymbol: "BNB",
+  //   defaultCollateralSymbol: "BUSD",
+  //   defaultFlagOrdersEnabled: false,
+  //   positionReaderPropsLength: 8,
+  //   v2: false,
+  // },
   [MAINNET]: {
-    nativeTokenSymbol: "BNB",
-    defaultCollateralSymbol: "BUSD",
+    nativeTokenSymbol: "ETH",
+    wrappedTokenSymbol: "WETH",
+    defaultCollateralSymbol: "USDC",
     defaultFlagOrdersEnabled: false,
     positionReaderPropsLength: 8,
-    v2: false,
+    v2: true,
+    SWAP_ORDER_EXECUTION_GAS_FEE: parseEther("0.0003"),
+    INCREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.0003"),
+    // contract requires that execution fee be strictly greater than instead of gte
+    DECREASE_ORDER_EXECUTION_GAS_FEE: parseEther("0.000300001"),
   },
 
   [TESTNET]: {
@@ -112,7 +127,7 @@ const ALCHEMY_WHITELISTED_DOMAINS = ["gmx.io", "app.gmx.io"];
 
 export const ARBITRUM_RPC_PROVIDERS = [getDefaultArbitrumRpcUrl()];
 export const AVALANCHE_RPC_PROVIDERS = ["https://api.avax.network/ext/bc/C/rpc"]; // BSC MAINNET
-
+export const ETHEREUM_RPC_PROVIDERS = ["https://eth.llamarpc.com"];
 // BSC TESTNET
 // const RPC_PROVIDERS = [
 //   "https://data-seed-prebsc-1-s1.binance.org:8545",
@@ -140,7 +155,8 @@ export const BSC_RPC_PROVIDERS = [
 ];
 
 export const RPC_PROVIDERS = {
-  [MAINNET]: BSC_RPC_PROVIDERS,
+  // [MAINNET]: BSC_RPC_PROVIDERS,
+  [MAINNET]: ETHEREUM_RPC_PROVIDERS,
   [ARBITRUM]: ARBITRUM_RPC_PROVIDERS,
   [AVALANCHE]: AVALANCHE_RPC_PROVIDERS,
 };
@@ -148,19 +164,22 @@ export const RPC_PROVIDERS = {
 export const FALLBACK_PROVIDERS = {
   [ARBITRUM]: [getAlchemyHttpUrl()],
   [AVALANCHE]: ["https://avax-mainnet.gateway.pokt.network/v1/lb/626f37766c499d003aada23b"],
+  [MAINNET]: ["https://eth.llamarpc.com"]
 };
 
 export const NETWORK_METADATA = {
   [MAINNET]: {
     chainId: "0x" + MAINNET.toString(16),
-    chainName: "BSC",
+    chainName: "Ethereum",
     nativeCurrency: {
-      name: "BNB",
-      symbol: "BNB",
+      name: "ETH",
+      symbol: "ETH",
       decimals: 18,
     },
-    rpcUrls: BSC_RPC_PROVIDERS,
-    blockExplorerUrls: ["https://bscscan.com"],
+    // rpcUrls: BSC_RPC_PROVIDERS,
+    // blockExplorerUrls: ["https://bscscan.com"],
+    rpcUrls: ETHEREUM_RPC_PROVIDERS,
+    blockExplorerUrls: ["https://etherscan.com"],
   },
   [TESTNET]: {
     chainId: "0x" + TESTNET.toString(16),
@@ -248,7 +267,7 @@ export function getExplorerUrl(chainId) {
   } else if (chainId === 42) {
     return "https://kovan.etherscan.io/";
   } else if (chainId === MAINNET) {
-    return "https://bscscan.com/";
+    return "https://etherscan.com/";
   } else if (chainId === TESTNET) {
     return "https://testnet.bscscan.com/";
   } else if (chainId === ARBITRUM_TESTNET) {

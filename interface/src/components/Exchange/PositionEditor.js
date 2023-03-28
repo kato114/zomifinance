@@ -66,7 +66,7 @@ export default function PositionEditor(props) {
 
   const routerAddress = getContract(chainId, "Router");
   const positionRouterAddress = getContract(chainId, "PositionRouter");
-  console.log("---shark PositionEditor");
+  // console.log("---shark PositionEditor");
   const { data: tokenAllowance } = useSWR(
     [active, chainId, collateralTokenAddress, "allowance", account, routerAddress],
     {
@@ -596,7 +596,7 @@ export default function PositionEditor(props) {
                                 This is the network cost required to execute the {depositOrWithdrawalText}.
                                 <br />
                                 <br />
-                                <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/trading#execution-fee">
+                                <ExternalLink href="https://docs.zomi.financetrading#execution-fee">
                                   More Info
                                 </ExternalLink>
                               </Trans>

@@ -32,13 +32,13 @@ export function useInfoTokens(
 
   const whitelistedTokens = getWhitelistedTokens(chainId);
   const whitelistedTokenAddresses = whitelistedTokens.map((token) => token.address);
-  console.log("---shark useInfoTokens start!");
-  console.log("---shark vaultReaderAddress: ", vaultAddress);
-  console.log("---shark positionRouterAddress: ", positionRouterAddress);
-  console.log("---shark nativeTokenAddress: ", nativeTokenAddress);
-  console.log("---shark expandDecimals(1, 18): ", expandDecimals(1, 18));
-  console.log("---shark whitelistedTokenAddresses: ", whitelistedTokenAddresses);
-  console.log("---shark useInfoTokens end!");
+  // console.log("---shark useInfoTokens start!");
+  // console.log("---shark vaultReaderAddress: ", vaultAddress);
+  // console.log("---shark positionRouterAddress: ", positionRouterAddress);
+  // console.log("---shark nativeTokenAddress: ", nativeTokenAddress);
+  // console.log("---shark expandDecimals(1, 18): ", expandDecimals(1, 18));
+  // console.log("---shark whitelistedTokenAddresses: ", whitelistedTokenAddresses);
+  // console.log("---shark useInfoTokens end!");
 
   const { data: vaultTokenInfo } = useSWR<BigNumber[], any>(
     [`useInfoTokens:${active}`, chainId, vaultReaderAddress, "getVaultTokenInfoV4"],
@@ -106,7 +106,7 @@ function getInfoTokens(
 
     infoTokens[token.address] = token;
   }
-
+  // console.log("---shark getInfoTokens   ");
   for (let i = 0; i < whitelistedTokens.length; i++) {
     const token = JSON.parse(JSON.stringify(whitelistedTokens[i])) as TokenInfo;
 

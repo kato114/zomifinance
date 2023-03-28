@@ -31,19 +31,19 @@ export function RedirectPopupModal({
       <br />
       <Trans>
         The website is a community deployed and maintained instance of the open source{" "}
-        <ExternalLink href="https://github.com/MinMax-Dex/minmax-interface">$ZOMI front end</ExternalLink>, hosted and
+        <ExternalLink href="https://github.com/zomi/">$ZOMI front end</ExternalLink>, hosted and
         served on the distributed, peer-to-peer <ExternalLink href="https://ipfs.io/">IPFS network</ExternalLink>.
       </Trans>
       <br />
       <br />
       <Trans>
         Alternative links can be found in the{" "}
-        <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/app-links">docs</ExternalLink>.
+        <ExternalLink href="https://docs.zomi.financeapp-links">docs</ExternalLink>.
         <br />
         <br />
         By clicking Agree you accept the{" "}
-        <ExternalLink href="https://app.minmax.exchange/#/terms-and-conditions">T&Cs</ExternalLink> and{" "}
-        <ExternalLink href="https://app.minmax.exchange/#/referral-terms">Referral T&Cs</ExternalLink>.
+        <ExternalLink href="/terms-and-conditions">T&Cs</ExternalLink> and{" "}
+        <ExternalLink href="/referral-terms">Referral T&Cs</ExternalLink>.
         <br />
         <br />
       </Trans>

@@ -6,76 +6,67 @@ import { Token } from "domain/tokens";
 export const TOKENS: { [chainId: number]: Token[] } = {
   [MAINNET]: [
     {
-      name: "Bitcoin (BTCB)",
-      symbol: "BTC",
-      decimals: 18,
-      address: "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-      coingeckoUrl: "https://www.coingecko.com/en/coins/binance-bitcoin",
-      imageUrl: "https://assets.coingecko.com/coins/images/14108/small/Binance-bitcoin.png",
-    },
-    {
       name: "Ethereum",
       symbol: "ETH",
       decimals: 18,
-      address: "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      address:  ethers.constants.AddressZero,
       coingeckoUrl: "https://www.coingecko.com/en/coins/ethereum",
       imageUrl: "https://assets.coingecko.com/coins/images/279/small/ethereum.png",
-    },
-    {
-      name: "Binance Coin",
-      symbol: "BNB",
-      decimals: 18,
-      address: ethers.constants.AddressZero,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/binance-coin",
-      imageUrl: "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png",
       isNative: true,
+      isShortable: true,
     },
     {
-      name: "Wrapped Binance Coin",
-      symbol: "WBNB",
+      name: "Wrapped Ether",
+      symbol: "WETH",
       decimals: 18,
-      address: getContract(MAINNET, "NATIVE_TOKEN"),
+      address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
       isWrapped: true,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/binance-coin",
-      imageUrl: "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png",
-      baseSymbol: "BNB",
+      baseSymbol: "ETH",
+      imageUrl: "https://assets.coingecko.com/coins/images/2518/small/weth.png?1628852295",
     },
     {
-      name: "USD Gambit",
-      symbol: "USDG",
+      name: "Wrapped Bitcoin",
+      symbol: "WBTC",
       decimals: 18,
-      address: getContract(MAINNET, "USDG"),
-      isUsdg: true,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/usd-gambit",
-      imageUrl: "https://assets.coingecko.com/coins/images/15886/small/usdg-02.png",
+      address: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/wrapped-bitcoin",
+      imageUrl: "https://assets.coingecko.com/coins/images/7598/small/wrapped_bitcoin_wbtc.png?1548822744",
     },
     {
-      name: "Binance USD",
-      symbol: "BUSD",
+      name: "ApeCoin",
+      symbol: "APE",
       decimals: 18,
-      address: "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      isStable: true,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/binance-usd",
-      imageUrl: "https://assets.coingecko.com/coins/images/9576/small/BUSD.png",
+      address: "0x4d224452801ACEd8B2F0aebE155379bb5D594381",
+      coingeckoUrl: "https://www.coingecko.com/en/coins/apecoin",
+      imageUrl: "https://assets.coingecko.com/coins/images/24383/small/apecoin.jpg?1647476455",
     },
+    // {
+    //   name: "USD Gambit",
+    //   symbol: "USDG",
+    //   decimals: 18,
+    //   address: getContract(MAINNET, "USDG"),
+    //   isUsdg: true,
+    //   coingeckoUrl: "https://www.coingecko.com/en/coins/usd-gambit",
+    //   imageUrl: "https://assets.coingecko.com/coins/images/15886/small/usdg-02.png",
+    // },
     {
       name: "USD Coin",
       symbol: "USDC",
-      decimals: 18,
-      address: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      decimals: 6,
+      address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       isStable: true,
       coingeckoUrl: "https://www.coingecko.com/en/coins/usd-coin",
       imageUrl: "https://assets.coingecko.com/coins/images/6319/small/USD_Coin_icon.png",
     },
-    {
-      name: "Tether",
-      symbol: "USDT",
-      decimals: 18,
-      address: "0x55d398326f99059fF775485246999027B3197955",
-      isStable: true,
-      coingeckoUrl: "https://www.coingecko.com/en/coins/tether",
-      imageUrl: "https://assets.coingecko.com/coins/images/325/small/Tether-logo.png",
-    },
+    // {
+    //   name: "Tether",
+    //   symbol: "USDT",
+    //   decimals: 6,
+    //   address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    //   isStable: true,
+    //   coingeckoUrl: "https://www.coingecko.com/en/coins/tether",
+    //   imageUrl: "https://assets.coingecko.com/coins/images/325/small/Tether-logo.png",
+    // },
   ],
   [TESTNET]: [
     {
@@ -371,7 +362,7 @@ export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
       symbol: "GLP",
       address: getContract(ARBITRUM, "GLP"),
       decimals: 18,
-      imageUrl: "https://github.com/MinMax-Dex/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/zomi/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
   ],
   [AVALANCHE]: [
@@ -393,7 +384,29 @@ export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
       symbol: "$ZLP",
       address: getContract(ARBITRUM, "GLP"),
       decimals: 18,
-      imageUrl: "https://github.com/MinMax-Dex/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/zomi/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+    },
+  ],
+  [MAINNET]: [
+    {
+      name: "$ZOMI",
+      symbol: "$ZOMI",
+      address: getContract(MAINNET, "GMX"),
+      decimals: 18,
+      imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
+    },
+    {
+      name: "Escrowed ZOMI",
+      symbol: "esZOMI",
+      address: getContract(MAINNET, "ES_GMX"),
+      decimals: 18,
+    },
+    {
+      name: "ZOMI LP",
+      symbol: "$ZLP",
+      address: getContract(MAINNET, "GLP"),
+      decimals: 18,
+      imageUrl: "https://github.com/zomi/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
   ],
 };
@@ -413,7 +426,7 @@ export const PLATFORM_TOKENS: { [chainId: number]: { [symbol: string]: Token } }
       symbol: "GLP",
       decimals: 18,
       address: getContract(ARBITRUM, "StakedGlpTracker"), // address of fsGLP token because user only holds fsGLP
-      imageUrl: "https://github.com/MinMax-Dex/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/zomi/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
   },
   [AVALANCHE]: {
@@ -430,7 +443,24 @@ export const PLATFORM_TOKENS: { [chainId: number]: { [symbol: string]: Token } }
       symbol: "$ZLP",
       decimals: 18,
       address: getContract(AVALANCHE, "StakedGlpTracker"), // address of fsGLP token because user only holds fsGLP
-      imageUrl: "https://github.com/MinMax-Dex/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/zomi/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+    },
+  },
+  [MAINNET]: {
+    // avalanche
+    GMX: {
+      name: "ZOMI",
+      symbol: "$ZOMI",
+      decimals: 18,
+      address: getContract(MAINNET, "GMX"),
+      imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
+    },
+    GLP: {
+      name: "ZOMI LP",
+      symbol: "$ZLP",
+      decimals: 18,
+      address: getContract(MAINNET, "StakedGlpTracker"), // address of fsGLP token because user only holds fsGLP
+      imageUrl: "https://github.com/zomi/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
   },
 };
@@ -443,6 +473,27 @@ export const ICONLINKS = {
     },
     GLP: {
       arbitrum: "https://testnet.arbiscan.io/token/0xb4f81Fa74e06b5f762A104e47276BA9b2929cb27",
+    },
+  },
+  [MAINNET]: {
+    GMX: {
+      coingecko: "https://www.coingecko.com/en/coins/gmx",
+      avalanche: "https://etherscan.io/address/0xDc2C540Fd99eb5dC424095C8C6A63f7c805D46e9",
+    },
+    GLP: {
+      avalanche: "https://etherscan.io/address/0x0E2b5428CE48c87a33Ad55A14d3b79BC7300C241",
+    },
+    ETH: {
+      coingecko: "https://www.coingecko.com/en/coins/weth",
+      avalanche: "https://etherscan.io/address/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    },
+    BTC: {
+      coingecko: "https://www.coingecko.com/en/coins/bitcoin-avalanche-bridged-btc-b",
+      avalanche: "https://etherscan.io/address/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    },
+    USDC: {
+      coingecko: "https://www.coingecko.com/en/coins/usd-coin",
+      avalanche: "https://etherscan.io/address/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
     },
   },
   [ARBITRUM]: {

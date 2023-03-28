@@ -41,7 +41,7 @@ import {
   USDG_ADDRESS,
   USDG_DECIMALS,
 } from "lib/legacy";
-import { ARBITRUM, AVALANCHE, getChainName, getConstant, IS_NETWORK_DISABLED, isSupportedChain } from "config/chains";
+import { ARBITRUM, getChainName, getConstant, IS_NETWORK_DISABLED, isSupportedChain } from "config/chains";
 import * as Api from "domain/legacy";
 import { getContract } from "config/contracts";
 
@@ -197,9 +197,7 @@ export default function SwapBox(props) {
     if (chainId === ARBITRUM) {
       return "https://www.gmx.house/arbitrum/leaderboard";
     }
-    if (chainId === AVALANCHE) {
-      return "https://www.gmx.house/avalanche/leaderboard";
-    }
+    
     return "https://www.gmx.house";
   };
 
@@ -2194,7 +2192,7 @@ export default function SwapBox(props) {
               orders. <br />
               <br />
               For screenshots and more information, please see the{" "}
-              <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/trading#stop-loss-take-profit-orders">docs</ExternalLink>
+              <ExternalLink href="https://docs.zomi.financetrading#stop-loss-take-profit-orders">docs</ExternalLink>
               .
             </Trans>
           </div>
@@ -2292,7 +2290,7 @@ export default function SwapBox(props) {
                         top right of the page after connecting your wallet.
                         <br />
                         <br />
-                        <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/trading#opening-a-position">
+                        <ExternalLink href="https://docs.zomi.financetrading#opening-a-position">
                           More Info
                         </ExternalLink>
                       </Trans>
@@ -2321,7 +2319,7 @@ export default function SwapBox(props) {
                         This exit price will change with the price of the asset.
                         <br />
                         <br />
-                        <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/trading#opening-a-position">
+                        <ExternalLink href="https://docs.zomi.financetrading#opening-a-position">
                           More Info
                         </ExternalLink>
                       </Trans>
@@ -2359,7 +2357,7 @@ export default function SwapBox(props) {
                         </div>
                       )}
                       <br />
-                      <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/trading#opening-a-position">
+                      <ExternalLink href="https://docs.zomi.financetrading#opening-a-position">
                         <Trans>More Info</Trans>
                       </ExternalLink>
                     </div>
@@ -2407,7 +2405,7 @@ export default function SwapBox(props) {
         <div className="App-card-divider"></div>
         <div className="Exchange-info-row">
           <div className="Exchange-info-label-button">
-            <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/trading">
+            <ExternalLink href="https://docs.zomi.financetrading">
               <Trans>Trading guide</Trans>
             </ExternalLink>
           </div>
@@ -2421,7 +2419,7 @@ export default function SwapBox(props) {
         </div> */}
         <div className="Exchange-info-row">
           <div className="Exchange-info-label-button">
-            <ExternalLink href="https://minmaxdex.gitbook.io/minmaxdex/trading#backup-rpc-urls">
+            <ExternalLink href="https://docs.zomi.financetrading#backup-rpc-urls">
               <Trans>Speed up page loading</Trans>
             </ExternalLink>
           </div>

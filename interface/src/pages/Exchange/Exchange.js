@@ -302,7 +302,7 @@ export function getPositions(
 
     applyPendingChanges(position, pendingPositions);
 
-    if (position.size.gt(0) || position.hasPendingChanges) {
+    if (position.size.gt(1) || position.hasPendingChanges) {
       positions.push(position);
     }
   }
@@ -342,6 +342,7 @@ export function getPositionQuery(tokens, nativeTokenAddress) {
       if (token.isWrapped) {
         continue;
       }
+      // collateralTokens.push(stableToken.address);
       collateralTokens.push(stableToken.address);
       indexTokens.push(getTokenAddress(token, nativeTokenAddress));
       isLong.push(false);

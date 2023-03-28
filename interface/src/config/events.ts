@@ -24,7 +24,7 @@ export const homeEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Read More",
-  //       link: "https://minmaxdex.medium.com//gmx-frontend-updates-8d13f2346e1e",
+  //       link: "https://zomifinance.medium.com//gmx-frontend-updates-8d13f2346e1e",
   //       newTab: true,
   //     },
   //   ],
@@ -38,7 +38,7 @@ export const homeEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Read More",
-  //       link: "https://minmaxdex.medium.com//arbitrum-nitro-5f88c03a46fe",
+  //       link: "https://zomifinance.medium.com//arbitrum-nitro-5f88c03a46fe",
   //       newTab: true,
   //     },
   //   ],
@@ -55,7 +55,7 @@ export const appEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Read more",
-  //       link: "https://minmaxdex.gitbook.io/minmaxdex/roadmap#30-march-2022",
+  //       link: "https://docs.zomi.financeroadmap#30-march-2022",
   //       newTab: true,
   //     },
   //     {
@@ -86,7 +86,7 @@ export const appEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Learn More",
-  //       link: "https://minmaxdex.gitbook.io/minmaxdex/trading#backup-rpc-urls",
+  //       link: "https://docs.zomi.financetrading#backup-rpc-urls",
   //       newTab: true,
   //     },
   //   ],
@@ -118,7 +118,7 @@ export const appEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Read More",
-  //       link: "https://minmaxdex.medium.com//gmx-arbitrum-odyssey-fc12cba2d10d",
+  //       link: "https://zomifinance.medium.com//gmx-arbitrum-odyssey-fc12cba2d10d",
   //     },
   //   ],
   // },
@@ -132,7 +132,7 @@ export const appEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Learn More",
-  //       link: "https://minmaxdex.gitbook.io/minmaxdex/trading#backup-rpc-urls",
+  //       link: "https://docs.zomi.financetrading#backup-rpc-urls",
   //       newTab: true,
   //     },
   //   ],
@@ -161,7 +161,7 @@ export const appEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Read More",
-  //       link: "https://minmaxdex.medium.com//gmx-frontend-updates-8d13f2346e1e",
+  //       link: "https://zomifinance.medium.com//gmx-frontend-updates-8d13f2346e1e",
   //       newTab: true,
   //     },
   //   ],
@@ -196,7 +196,7 @@ export const appEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Read More",
-  //       link: "https://minmaxdex.medium.com//gmx-frontend-updates-8d13f2346e1e",
+  //       link: "https://zomifinance.medium.com//gmx-frontend-updates-8d13f2346e1e",
   //       newTab: true,
   //     },
   //   ],
@@ -211,7 +211,7 @@ export const appEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Learn More",
-  //       link: "https://minmaxdex.gitbook.io/minmaxdex/trading#backup-rpc-urls",
+  //       link: "https://docs.zomi.financetrading#backup-rpc-urls",
   //       newTab: true,
   //     },
   //   ],
@@ -225,7 +225,7 @@ export const appEventsData: EventData[] = [
   //   buttons: [
   //     {
   //       text: "Read More",
-  //       link: "https://minmaxdex.medium.com//arbitrum-nitro-5f88c03a46fe",
+  //       link: "https://zomifinance.medium.com//arbitrum-nitro-5f88c03a46fe",
   //       newTab: true,
   //     },
   //   ],
@@ -239,7 +239,7 @@ export const appEventsData: EventData[] = [
     buttons: [
       {
         text: "Read More",
-        link: "https://minmaxdex.medium.com//gmx-deployment-updates-a6a470df445f",
+        link: "https://zomifinance.medium.com//gmx-deployment-updates-a6a470df445f",
         newTab: true,
       },
     ],

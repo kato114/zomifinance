@@ -159,6 +159,6 @@ export default function APRLabel({ chainId, label }) {
     gmxPrice,
     gmxSupply
   );
-  console.log("---shark APRLabel processedData: ", processedData);
+  // console.log("---shark APRLabel processedData: ", processedData);
   return <>{`${formatKeyAmount(processedData, label, 2, 2, true)}%`}</>;
 }

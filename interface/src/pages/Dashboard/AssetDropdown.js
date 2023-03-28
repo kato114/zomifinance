@@ -16,7 +16,7 @@ import { useChainId } from "lib/chains";
 function AssetDropdown({ assetSymbol, assetInfo }) {
   const { active } = useWeb3React();
   const { chainId } = useChainId();
-  console.log("---shark AssetDropdown");
+  // console.log("---shark AssetDropdown");
   let { coingecko, arbitrum, avalanche } = ICONLINKS[chainId][assetSymbol] || {};
   const unavailableTokenSymbols =
     {

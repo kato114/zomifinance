@@ -143,7 +143,7 @@ export default function GlpSwap(props) {
   const glpManagerAddress = getContract(chainId, "GlpManager");
   const rewardRouterAddress = getContract(chainId, "RewardRouter");
   const tokensForBalanceAndSupplyQuery = [stakedGlpTrackerAddress, usdgAddress];
-  console.log("---shark tokensForBalanceAndSupplyQuery: ", tokensForBalanceAndSupplyQuery);
+  // console.log("---shark tokensForBalanceAndSupplyQuery: ", tokensForBalanceAndSupplyQuery);
 
   const tokenAddresses = tokens.map((token) => token.address);
   const { data: tokenBalances } = useSWR(
@@ -166,7 +166,7 @@ export default function GlpSwap(props) {
     }
   );
 
-  console.log("---shark balancesAndSupplies: ", balancesAndSupplies);
+  // console.log("---shark balancesAndSupplies: ", balancesAndSupplies);
 
   const { data: aums } = useSWR([`GlpSwap:getAums:${active}`, chainId, glpManagerAddress, "getAums"], {
     fetcher: contractFetcher(library, GlpManager),
@@ -222,7 +222,7 @@ export default function GlpSwap(props) {
   const stakingData = getStakingData(stakingInfo);
 
   const redemptionTime = lastPurchaseTime ? lastPurchaseTime.add(GLP_COOLDOWN_DURATION) : undefined;
-  console.log("---shark redemptionTime:", redemptionTime);
+  // console.log("---shark redemptionTime:", redemptionTime);
   const inCooldownWindow = redemptionTime && parseInt(Date.now() / 1000) < redemptionTime;
 
   const glpSupply = balancesAndSupplies ? balancesAndSupplies[1] : bigNumberify(0);
@@ -252,6 +252,7 @@ export default function GlpSwap(props) {
   }
 
   const { infoTokens } = useInfoTokens(library, chainId, active, tokenBalances, undefined);
+  // console.log("---shark useInfoTokens");
   const swapToken = getToken(chainId, swapTokenAddress);
   const swapTokenInfo = getTokenInfo(infoTokens, swapTokenAddress);
 
@@ -338,15 +339,15 @@ export default function GlpSwap(props) {
           setFeeBasisPoints("");
           return;
         }
-        console.log(
-          "---shark swapAmount, swapTokenAddress, infoTokens, glpPrice, usdgSupply, totalTokenWeights",
-          swapAmount,
-          swapTokenAddress,
-          infoTokens,
-          glpPrice,
-          usdgSupply,
-          totalTokenWeights
-        );
+        // console.log(
+        //   "---shark swapAmount, swapTokenAddress, infoTokens, glpPrice, usdgSupply, totalTokenWeights",
+        //   swapAmount,
+        //   swapTokenAddress,
+        //   infoTokens,
+        //   glpPrice,
+        //   usdgSupply,
+        //   totalTokenWeights
+        // );
         if (isBuying) {
           const { amount: nextAmount, feeBasisPoints: feeBps } = getBuyGlpToAmount(
             swapAmount,
@@ -577,7 +578,7 @@ export default function GlpSwap(props) {
     const minGlp = glpAmount.mul(BASIS_POINTS_DIVISOR - savedSlippageAmount).div(BASIS_POINTS_DIVISOR);
 
     const contract = new ethers.Contract(rewardRouterAddress, RewardRouter.abi, library.getSigner());
-    const method = swapTokenAddress === AddressZero ? "mintAndStakeGlpETH" : "mintAndStakeGlp";
+    const method = swapTokenAddress === AddressZero ? "mintAndStakeZlpETH" : "mintAndStakeZlp";
     const params = swapTokenAddress === AddressZero ? [0, minGlp] : [swapTokenAddress, swapAmount, 0, minGlp];
     const value = swapTokenAddress === AddressZero ? swapAmount : 0;
 
@@ -605,7 +606,7 @@ export default function GlpSwap(props) {
     const minOut = swapAmount.mul(BASIS_POINTS_DIVISOR - savedSlippageAmount).div(BASIS_POINTS_DIVISOR);
 
     const contract = new ethers.Contract(rewardRouterAddress, RewardRouter.abi, library.getSigner());
-    const method = swapTokenAddress === AddressZero ? "unstakeAndRedeemGlpETH" : "unstakeAndRedeemGlp";
+    const method = swapTokenAddress === AddressZero ? "unstakeAndRedeemZlpETH" : "unstakeAndRedeemZlp";
     const params =
       swapTokenAddress === AddressZero ? [glpAmount, minOut, account] : [swapTokenAddress, glpAmount, minOut, account];
 
@@ -710,7 +711,7 @@ export default function GlpSwap(props) {
       {/* <div className="Page-title-section">
         <div className="Page-title">{isBuying ? "Buy $ZLP" : "Sell $ZLP"}</div>
         {isBuying && <div className="Page-description">
-          Purchase <a href="https://minmaxdex.gitbook.io/minmaxdex/" target="_blank" rel="noopener noreferrer">GLP tokens</a> to earn {nativeTokenSymbol} fees from swaps and leverage trading.<br/>
+          Purchase <a href="https://docs.zomi.finance" target="_blank" rel="noopener noreferrer">GLP tokens</a> to earn {nativeTokenSymbol} fees from swaps and leverage trading.<br/>
           Note that there is a minimum holding time of 15 minutes after a purchase.<br/>
           <div>View <Link to="/earn">staking</Link> page.</div>
         </div>}

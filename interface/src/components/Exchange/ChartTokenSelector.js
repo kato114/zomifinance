@@ -12,7 +12,7 @@ export default function ChartTokenSelector(props) {
   const isLong = swapOption === LONG;
   const isShort = swapOption === SHORT;
   const isSwap = swapOption === SWAP;
-  console.log("---shark ChartTokenSelector");
+  // console.log("---shark ChartTokenSelector");
   let options = getTokens(chainId);
   const whitelistedTokens = getWhitelistedTokens(chainId);
   const indexTokens = whitelistedTokens.filter((token) => !token.isStable && !token.isWrapped);

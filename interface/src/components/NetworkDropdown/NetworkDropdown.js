@@ -8,7 +8,7 @@ import "./NetworkDropdown.css";
 import language24Icon from "img/ic_language24.svg";
 import settingsIcon from "img/ic_settings_16.svg";
 import arbitrumIcon from "img/ic_arbitrum_24.svg";
-import avaxIcon from "img/ic_avalanche_24.svg";
+import ethIcon from "img/ic_eth_24.svg";
 import checkedIcon from "img/ic_checked.svg";
 import { importImage } from "lib/legacy";
 import { defaultLocale, dynamicActivate, isTestLanguage, locales } from "lib/i18n";
@@ -87,7 +87,7 @@ function NavIcons({ selectorLabel }) {
       <button className={cx("btn-primary small transparent")}>
         <img
           className="network-dropdown-icon"
-          src={selectorLabel === "Arbitrum" ? arbitrumIcon : avaxIcon}
+          src={selectorLabel === "Arbitrum" ? arbitrumIcon : ethIcon}
           alt={selectorLabel}
         />
       </button>

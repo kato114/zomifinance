@@ -72,7 +72,7 @@ import { I18nProvider } from "@lingui/react";
 import { Trans, t } from "@lingui/macro";
 import { defaultLocale, dynamicActivate } from "lib/i18n";
 import { Header } from "components/Header/Header";
-import { ARBITRUM, AVALANCHE, getAlchemyWsUrl, getExplorerUrl } from "config/chains";
+import { ARBITRUM, MAINNET, getAlchemyWsUrl, getExplorerUrl } from "config/chains";
 import { useLocalStorageSerializeKey } from "lib/localStorage";
 import { helperToast } from "lib/helperToast";
 import {
@@ -122,6 +122,9 @@ const arbWsProvider = new ethers.providers.WebSocketProvider(getAlchemyWsUrl());
 
 const avaxWsProvider = new ethers.providers.JsonRpcProvider("https://api.avax.network/ext/bc/C/rpc");
 
+const ethWsProvider = new ethers.providers.JsonRpcProvider("https://eth.llamarpc.com");
+
+
 function getWsProvider(active, chainId) {
   if (!active) {
     return;
@@ -130,8 +133,8 @@ function getWsProvider(active, chainId) {
     return arbWsProvider;
   }
 
-  if (chainId === AVALANCHE) {
-    return avaxWsProvider;
+  if (chainId === MAINNET) {
+    return ethWsProvider;
   }
 }
 
@@ -491,7 +494,7 @@ function FullApp() {
             <Route exact path="/jobs">
               <Jobs />
             </Route>
-            <Route exact path="/buy_mmx">
+            <Route exact path="/buy_ZOMI">
               <BuyGMX />
             </Route>
             <Route exact path="/ecosystem">

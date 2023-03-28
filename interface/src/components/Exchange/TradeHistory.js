@@ -100,7 +100,7 @@ export default function TradeHistory(props) {
   };
 
   // const { trades, updateTrades } = useTrades(chainId, account, props.forSingleAccount, getAfterId());
-  console.log("---shark useAllTradesHistory");
+  // console.log("---shark useAllTradesHistory");
   const tradeHistoryData = useAllTradesHistory(chainId, account);
   const liquidationsData = useLiquidationsData(chainId, account);
   const liquidationsDataMap = useMemo(() => {
